@@ -8,13 +8,15 @@ namespace apMatrizesEsparsas
 {
     class ListaCircularCelula
     {
+        bool tipo; //0 é linha, 1 é coluna
         Celula cabeca, final;
         int qtasCelulas;
 
-        public ListaCircularCelula()
+        public ListaCircularCelula(bool t)
         {
             cabeca = final = null;
             qtasCelulas = 0;
+            tipo = t;
         }
 
         public int QtasCelulas { get => qtasCelulas; }
@@ -23,10 +25,19 @@ namespace apMatrizesEsparsas
 
         public bool EstaVazia { get => cabeca == null; }
 
-        public void InserirDireita(Celula c)
+        public bool Tipo { get => tipo; }
+
+        public void Inserir(Celula c)
         {
             if (c == null)
                 throw new Exception("Célula nula");
+            if (tipo)
+                InserirDireita(c);
+            else
+                InserirAbaixo(c);
+        }
+        private void InserirDireita(Celula c)
+        {            
             if (EstaVazia)
                 cabeca = c;
             final.Direita = c;
@@ -35,10 +46,8 @@ namespace apMatrizesEsparsas
             qtasCelulas++;
         }
 
-        public void InserirAbaixo(Celula c)
+        private void InserirAbaixo(Celula c)
         {
-            if (c == null)
-                throw new Exception("Célula nula");
             if (EstaVazia)
                 cabeca = c;
             final.Abaixo = c;

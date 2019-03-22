@@ -53,6 +53,7 @@
       <DependentUpon>FrmMatrizes.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaCircularCelula.cs" />
+    <Compile Include="MatrizEsparsa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMatrizes.resx">

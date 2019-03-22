@@ -18,7 +18,7 @@ namespace apMatrizesEsparsas
         {
             matriz1 = new MatrizEsparsa();
             matriz2 = new MatrizEsparsa();
-        }        
+        }
 
         public FrmMatrizes()
         {
@@ -26,36 +26,6 @@ namespace apMatrizesEsparsas
         }
 
         private void ListarMatriz(MatrizEsparsa matriz, DataGridView onde)
-        {
-
-        }
-
-        private void btnLerArquivo1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSomarConstante_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMultiplicarConstante_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLerArquivo2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSomarMatrizes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMultiplicarMatriz_Click(object sender, EventArgs e)
         {
 
         }
