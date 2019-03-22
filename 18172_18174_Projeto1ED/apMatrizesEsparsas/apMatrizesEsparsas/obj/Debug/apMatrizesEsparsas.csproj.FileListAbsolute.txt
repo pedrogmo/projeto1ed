@@ -1,0 +1,10 @@
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe.config
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.pdb
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csprojResolveAssemblyReference.cache
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.FrmMatrizes.resources
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.Properties.Resources.resources
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.GenerateResource.Cache
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.CoreCompileInputs.cache
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.exe
+Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.pdb

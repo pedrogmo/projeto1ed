@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa
+namespace apMatrizesEsparsas
 {
-    public partial class Form1 : Form
+    public partial class FrmMatrizes : Form
     {
-        public Form1()
+        public FrmMatrizes()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
-﻿namespace Programa
+﻿namespace apMatrizesEsparsas
 {
-    partial class Form1
+    partial class FrmMatrizes
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmMatrizes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(679, 343);
+            this.Name = "FrmMatrizes";
+            this.Text = "Matrizes Esparsas";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

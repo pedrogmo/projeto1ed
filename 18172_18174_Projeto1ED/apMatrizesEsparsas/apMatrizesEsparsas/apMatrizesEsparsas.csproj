@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{211C99F6-A067-4C28-9DAF-A06445A40D6E}</ProjectGuid>
+    <ProjectGuid>{76793B0D-4ABA-4E4A-A25C-1DB44D890512}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Programa</RootNamespace>
-    <AssemblyName>Programa</AssemblyName>
+    <RootNamespace>apMatrizesEsparsas</RootNamespace>
+    <AssemblyName>apMatrizesEsparsas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,15 +46,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Celula.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmMatrizes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmMatrizes.Designer.cs">
+      <DependentUpon>FrmMatrizes.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaCircularCelula.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmMatrizes.resx">
+      <DependentUpon>FrmMatrizes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
