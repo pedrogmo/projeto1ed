@@ -52,8 +52,7 @@
     <Compile Include="FrmMatrizes.Designer.cs">
       <DependentUpon>FrmMatrizes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaCircularCelula.cs" />
-    <Compile Include="MatrizEsparsa.cs" />
+    <Compile Include="ListaCruzada.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMatrizes.resx">

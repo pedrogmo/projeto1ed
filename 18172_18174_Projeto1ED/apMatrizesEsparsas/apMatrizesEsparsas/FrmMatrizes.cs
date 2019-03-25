@@ -12,12 +12,11 @@ namespace apMatrizesEsparsas
 {
     public partial class FrmMatrizes : Form
     {
-        MatrizEsparsa matriz1, matriz2, resultado;
+        ListaCruzada matriz1, matriz2, resultado;
 
         private void FrmMatrizes_Load(object sender, EventArgs e)
         {
-            matriz1 = new MatrizEsparsa();
-            matriz2 = new MatrizEsparsa();
+            
         }        
 
         public FrmMatrizes()
@@ -25,7 +24,7 @@ namespace apMatrizesEsparsas
             InitializeComponent();
         }
 
-        private void ExibirMatriz(MatrizEsparsa matriz, DataGridView onde)
+        private void ExibirMatriz(ListaCruzada matriz, DataGridView onde)
         {
 
         }
@@ -52,12 +51,16 @@ namespace apMatrizesEsparsas
 
         private void btnCriarMatriz_Click(object sender, EventArgs e)
         {
-
+            matriz1 = new ListaCruzada((int)nudLinhas.Value, (int)nudColunas.Value);
+            dgvMatriz1.RowCount = matriz1.QtdLinhas;
+            dgvMatriz1.ColumnCount = matriz1.QtdColunas;
         }
 
         private void btnCriarMatriz2_Click(object sender, EventArgs e)
         {
-
+            matriz2 = new ListaCruzada((int)nudLinhas2.Value, (int)nudColunas2.Value);
+            dgvMatriz2.RowCount = matriz2.QtdLinhas;
+            dgvMatriz2.ColumnCount = matriz2.QtdColunas;
         }
 
         private void btnSomarMatrizes_Click(object sender, EventArgs e)

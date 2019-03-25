@@ -32,47 +32,47 @@
             this.dgvMatrizResult = new System.Windows.Forms.DataGridView();
             this.btnLerArquivo1 = new System.Windows.Forms.Button();
             this.gbMatriz1 = new System.Windows.Forms.GroupBox();
+            this.nudColunas = new System.Windows.Forms.NumericUpDown();
+            this.nudLinhas = new System.Windows.Forms.NumericUpDown();
+            this.btnCriarMatriz = new System.Windows.Forms.Button();
+            this.lblColunas = new System.Windows.Forms.Label();
+            this.lblLinhas = new System.Windows.Forms.Label();
             this.lblK = new System.Windows.Forms.Label();
             this.txtK = new System.Windows.Forms.TextBox();
             this.btnMultiplicarConstante = new System.Windows.Forms.Button();
             this.btnSomarConstante = new System.Windows.Forms.Button();
             this.gbMatriz2 = new System.Windows.Forms.GroupBox();
-            this.btnMultiplicarMatriz = new System.Windows.Forms.Button();
-            this.btnSomarMatrizes = new System.Windows.Forms.Button();
-            this.dgvMatriz2 = new System.Windows.Forms.DataGridView();
-            this.btnLerArquivo2 = new System.Windows.Forms.Button();
-            this.gbResultado = new System.Windows.Forms.GroupBox();
-            this.dgvAbrir = new System.Windows.Forms.OpenFileDialog();
-            this.lblLinhas = new System.Windows.Forms.Label();
-            this.lblColunas = new System.Windows.Forms.Label();
-            this.btnCriarMatriz = new System.Windows.Forms.Button();
-            this.nudLinhas = new System.Windows.Forms.NumericUpDown();
-            this.nudColunas = new System.Windows.Forms.NumericUpDown();
             this.nudColunas2 = new System.Windows.Forms.NumericUpDown();
             this.nudLinhas2 = new System.Windows.Forms.NumericUpDown();
             this.btnCriarMatriz2 = new System.Windows.Forms.Button();
             this.lblColunas2 = new System.Windows.Forms.Label();
             this.lblLinhas2 = new System.Windows.Forms.Label();
+            this.dgvMatriz2 = new System.Windows.Forms.DataGridView();
+            this.btnLerArquivo2 = new System.Windows.Forms.Button();
+            this.btnMultiplicarMatriz = new System.Windows.Forms.Button();
+            this.btnSomarMatrizes = new System.Windows.Forms.Button();
+            this.gbResultado = new System.Windows.Forms.GroupBox();
+            this.dgvAbrir = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).BeginInit();
             this.gbMatriz1.SuspendLayout();
-            this.gbMatriz2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).BeginInit();
-            this.gbResultado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).BeginInit();
+            this.gbMatriz2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLinhas2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).BeginInit();
+            this.gbResultado.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvMatriz1
             // 
+            this.dgvMatriz1.AllowUserToAddRows = false;
             this.dgvMatriz1.AllowUserToDeleteRows = false;
             this.dgvMatriz1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatriz1.Location = new System.Drawing.Point(10, 46);
             this.dgvMatriz1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dgvMatriz1.Name = "dgvMatriz1";
-            this.dgvMatriz1.ReadOnly = true;
             this.dgvMatriz1.Size = new System.Drawing.Size(357, 223);
             this.dgvMatriz1.TabIndex = 0;
             // 
@@ -118,6 +118,68 @@
             this.gbMatriz1.TabIndex = 5;
             this.gbMatriz1.TabStop = false;
             this.gbMatriz1.Text = "Matriz 1";
+            // 
+            // nudColunas
+            // 
+            this.nudColunas.Location = new System.Drawing.Point(113, 407);
+            this.nudColunas.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudColunas.Name = "nudColunas";
+            this.nudColunas.Size = new System.Drawing.Size(72, 30);
+            this.nudColunas.TabIndex = 14;
+            this.nudColunas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudLinhas
+            // 
+            this.nudLinhas.Location = new System.Drawing.Point(113, 364);
+            this.nudLinhas.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudLinhas.Name = "nudLinhas";
+            this.nudLinhas.Size = new System.Drawing.Size(72, 30);
+            this.nudLinhas.TabIndex = 13;
+            this.nudLinhas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btnCriarMatriz
+            // 
+            this.btnCriarMatriz.Location = new System.Drawing.Point(23, 451);
+            this.btnCriarMatriz.Name = "btnCriarMatriz";
+            this.btnCriarMatriz.Size = new System.Drawing.Size(162, 50);
+            this.btnCriarMatriz.TabIndex = 12;
+            this.btnCriarMatriz.Text = "Criar Matriz";
+            this.btnCriarMatriz.UseVisualStyleBackColor = true;
+            this.btnCriarMatriz.Click += new System.EventHandler(this.btnCriarMatriz_Click);
+            // 
+            // lblColunas
+            // 
+            this.lblColunas.AutoSize = true;
+            this.lblColunas.Location = new System.Drawing.Point(6, 409);
+            this.lblColunas.Name = "lblColunas";
+            this.lblColunas.Size = new System.Drawing.Size(86, 23);
+            this.lblColunas.TabIndex = 11;
+            this.lblColunas.Text = "Colunas:";
+            // 
+            // lblLinhas
+            // 
+            this.lblLinhas.AutoSize = true;
+            this.lblLinhas.Location = new System.Drawing.Point(6, 366);
+            this.lblLinhas.Name = "lblLinhas";
+            this.lblLinhas.Size = new System.Drawing.Size(74, 23);
+            this.lblLinhas.TabIndex = 9;
+            this.lblLinhas.Text = "Linhas:";
             // 
             // lblK
             // 
@@ -172,121 +234,39 @@
             this.gbMatriz2.TabStop = false;
             this.gbMatriz2.Text = "Matriz 2";
             // 
-            // btnMultiplicarMatriz
-            // 
-            this.btnMultiplicarMatriz.Location = new System.Drawing.Point(377, 87);
-            this.btnMultiplicarMatriz.Name = "btnMultiplicarMatriz";
-            this.btnMultiplicarMatriz.Size = new System.Drawing.Size(197, 50);
-            this.btnMultiplicarMatriz.TabIndex = 5;
-            this.btnMultiplicarMatriz.Text = "Multiplicar Matrizes";
-            this.btnMultiplicarMatriz.UseVisualStyleBackColor = true;
-            this.btnMultiplicarMatriz.Click += new System.EventHandler(this.btnMultiplicarMatriz_Click);
-            // 
-            // btnSomarMatrizes
-            // 
-            this.btnSomarMatrizes.Location = new System.Drawing.Point(377, 31);
-            this.btnSomarMatrizes.Name = "btnSomarMatrizes";
-            this.btnSomarMatrizes.Size = new System.Drawing.Size(197, 50);
-            this.btnSomarMatrizes.TabIndex = 4;
-            this.btnSomarMatrizes.Text = "Somar Matrizes";
-            this.btnSomarMatrizes.UseVisualStyleBackColor = true;
-            this.btnSomarMatrizes.Click += new System.EventHandler(this.btnSomarMatrizes_Click);
-            // 
-            // dgvMatriz2
-            // 
-            this.dgvMatriz2.AllowUserToDeleteRows = false;
-            this.dgvMatriz2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatriz2.Location = new System.Drawing.Point(10, 46);
-            this.dgvMatriz2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.dgvMatriz2.Name = "dgvMatriz2";
-            this.dgvMatriz2.ReadOnly = true;
-            this.dgvMatriz2.Size = new System.Drawing.Size(357, 223);
-            this.dgvMatriz2.TabIndex = 0;
-            // 
-            // btnLerArquivo2
-            // 
-            this.btnLerArquivo2.Location = new System.Drawing.Point(411, 220);
-            this.btnLerArquivo2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnLerArquivo2.Name = "btnLerArquivo2";
-            this.btnLerArquivo2.Size = new System.Drawing.Size(127, 49);
-            this.btnLerArquivo2.TabIndex = 3;
-            this.btnLerArquivo2.Text = "Ler Arquivo";
-            this.btnLerArquivo2.UseVisualStyleBackColor = true;
-            this.btnLerArquivo2.Click += new System.EventHandler(this.btnLerArquivo2_Click);
-            // 
-            // gbResultado
-            // 
-            this.gbResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbResultado.Controls.Add(this.btnMultiplicarMatriz);
-            this.gbResultado.Controls.Add(this.dgvMatrizResult);
-            this.gbResultado.Controls.Add(this.btnSomarMatrizes);
-            this.gbResultado.Location = new System.Drawing.Point(471, 301);
-            this.gbResultado.Name = "gbResultado";
-            this.gbResultado.Size = new System.Drawing.Size(592, 262);
-            this.gbResultado.TabIndex = 8;
-            this.gbResultado.TabStop = false;
-            this.gbResultado.Text = "Resultado";
-            // 
-            // dgvAbrir
-            // 
-            this.dgvAbrir.DefaultExt = "txt";
-            this.dgvAbrir.FileName = "openFileDialog1";
-            // 
-            // lblLinhas
-            // 
-            this.lblLinhas.AutoSize = true;
-            this.lblLinhas.Location = new System.Drawing.Point(6, 366);
-            this.lblLinhas.Name = "lblLinhas";
-            this.lblLinhas.Size = new System.Drawing.Size(74, 23);
-            this.lblLinhas.TabIndex = 9;
-            this.lblLinhas.Text = "Linhas:";
-            // 
-            // lblColunas
-            // 
-            this.lblColunas.AutoSize = true;
-            this.lblColunas.Location = new System.Drawing.Point(6, 409);
-            this.lblColunas.Name = "lblColunas";
-            this.lblColunas.Size = new System.Drawing.Size(86, 23);
-            this.lblColunas.TabIndex = 11;
-            this.lblColunas.Text = "Colunas:";
-            // 
-            // btnCriarMatriz
-            // 
-            this.btnCriarMatriz.Location = new System.Drawing.Point(23, 451);
-            this.btnCriarMatriz.Name = "btnCriarMatriz";
-            this.btnCriarMatriz.Size = new System.Drawing.Size(162, 50);
-            this.btnCriarMatriz.TabIndex = 12;
-            this.btnCriarMatriz.Text = "Criar Matriz";
-            this.btnCriarMatriz.UseVisualStyleBackColor = true;
-            this.btnCriarMatriz.Click += new System.EventHandler(this.btnCriarMatriz_Click);
-            // 
-            // nudLinhas
-            // 
-            this.nudLinhas.Location = new System.Drawing.Point(113, 364);
-            this.nudLinhas.Name = "nudLinhas";
-            this.nudLinhas.Size = new System.Drawing.Size(72, 30);
-            this.nudLinhas.TabIndex = 13;
-            // 
-            // nudColunas
-            // 
-            this.nudColunas.Location = new System.Drawing.Point(113, 407);
-            this.nudColunas.Name = "nudColunas";
-            this.nudColunas.Size = new System.Drawing.Size(72, 30);
-            this.nudColunas.TabIndex = 14;
-            // 
             // nudColunas2
             // 
             this.nudColunas2.Location = new System.Drawing.Point(501, 96);
+            this.nudColunas2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudColunas2.Name = "nudColunas2";
             this.nudColunas2.Size = new System.Drawing.Size(72, 30);
             this.nudColunas2.TabIndex = 19;
+            this.nudColunas2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nudLinhas2
             // 
             this.nudLinhas2.Location = new System.Drawing.Point(501, 53);
+            this.nudLinhas2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudLinhas2.Name = "nudLinhas2";
             this.nudLinhas2.Size = new System.Drawing.Size(72, 30);
             this.nudLinhas2.TabIndex = 18;
+            this.nudLinhas2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnCriarMatriz2
             // 
@@ -316,6 +296,66 @@
             this.lblLinhas2.TabIndex = 15;
             this.lblLinhas2.Text = "Linhas:";
             // 
+            // dgvMatriz2
+            // 
+            this.dgvMatriz2.AllowUserToAddRows = false;
+            this.dgvMatriz2.AllowUserToDeleteRows = false;
+            this.dgvMatriz2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatriz2.Location = new System.Drawing.Point(10, 46);
+            this.dgvMatriz2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.dgvMatriz2.Name = "dgvMatriz2";
+            this.dgvMatriz2.Size = new System.Drawing.Size(357, 223);
+            this.dgvMatriz2.TabIndex = 0;
+            // 
+            // btnLerArquivo2
+            // 
+            this.btnLerArquivo2.Location = new System.Drawing.Point(411, 220);
+            this.btnLerArquivo2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnLerArquivo2.Name = "btnLerArquivo2";
+            this.btnLerArquivo2.Size = new System.Drawing.Size(127, 49);
+            this.btnLerArquivo2.TabIndex = 3;
+            this.btnLerArquivo2.Text = "Ler Arquivo";
+            this.btnLerArquivo2.UseVisualStyleBackColor = true;
+            this.btnLerArquivo2.Click += new System.EventHandler(this.btnLerArquivo2_Click);
+            // 
+            // btnMultiplicarMatriz
+            // 
+            this.btnMultiplicarMatriz.Location = new System.Drawing.Point(377, 87);
+            this.btnMultiplicarMatriz.Name = "btnMultiplicarMatriz";
+            this.btnMultiplicarMatriz.Size = new System.Drawing.Size(197, 50);
+            this.btnMultiplicarMatriz.TabIndex = 5;
+            this.btnMultiplicarMatriz.Text = "Multiplicar Matrizes";
+            this.btnMultiplicarMatriz.UseVisualStyleBackColor = true;
+            this.btnMultiplicarMatriz.Click += new System.EventHandler(this.btnMultiplicarMatriz_Click);
+            // 
+            // btnSomarMatrizes
+            // 
+            this.btnSomarMatrizes.Location = new System.Drawing.Point(377, 31);
+            this.btnSomarMatrizes.Name = "btnSomarMatrizes";
+            this.btnSomarMatrizes.Size = new System.Drawing.Size(197, 50);
+            this.btnSomarMatrizes.TabIndex = 4;
+            this.btnSomarMatrizes.Text = "Somar Matrizes";
+            this.btnSomarMatrizes.UseVisualStyleBackColor = true;
+            this.btnSomarMatrizes.Click += new System.EventHandler(this.btnSomarMatrizes_Click);
+            // 
+            // gbResultado
+            // 
+            this.gbResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbResultado.Controls.Add(this.btnMultiplicarMatriz);
+            this.gbResultado.Controls.Add(this.dgvMatrizResult);
+            this.gbResultado.Controls.Add(this.btnSomarMatrizes);
+            this.gbResultado.Location = new System.Drawing.Point(471, 301);
+            this.gbResultado.Name = "gbResultado";
+            this.gbResultado.Size = new System.Drawing.Size(592, 262);
+            this.gbResultado.TabIndex = 8;
+            this.gbResultado.TabStop = false;
+            this.gbResultado.Text = "Resultado";
+            // 
+            // dgvAbrir
+            // 
+            this.dgvAbrir.DefaultExt = "txt";
+            this.dgvAbrir.FileName = "openFileDialog1";
+            // 
             // FrmMatrizes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -333,14 +373,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).EndInit();
             this.gbMatriz1.ResumeLayout(false);
             this.gbMatriz1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).EndInit();
             this.gbMatriz2.ResumeLayout(false);
             this.gbMatriz2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).EndInit();
-            this.gbResultado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLinhas2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).EndInit();
+            this.gbResultado.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
