@@ -25,7 +25,7 @@ namespace apMatrizesEsparsas
             InitializeComponent();
         }
 
-        private void ListarMatriz(MatrizEsparsa matriz, DataGridView onde)
+        private void ExibirMatriz(MatrizEsparsa matriz, DataGridView onde)
         {
 
         }
@@ -46,6 +46,16 @@ namespace apMatrizesEsparsas
         }
 
         private void btnLerArquivo2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCriarMatriz_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCriarMatriz2_Click(object sender, EventArgs e)
         {
 
         }

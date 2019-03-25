@@ -8,3 +8,13 @@ Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\D
 Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.CoreCompileInputs.cache
 Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.exe
 Z:\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.pdb
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe.config
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.pdb
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.FrmMatrizes.resources
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.exe
+C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.pdb
