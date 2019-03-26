@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace apMatrizesEsparsas
 {
@@ -45,12 +46,68 @@ namespace apMatrizesEsparsas
             atual.Abaixo = cabeca;
         }
 
-        public void Incluir(Celula c)
+        public void Incluir(Celula novaCelula)
         {
-            if (c.Linha <= indCabeca || c.Linha > qtdLinhas)
+            if (novaCelula == null)
+                throw new Exception("Célula nula");
+            novaCelula.Direita = null;
+            novaCelula.Abaixo = null;
+            if (novaCelula.Linha <= indCabeca || novaCelula.Linha > qtdLinhas)
                 throw new Exception("Linha da célula inválida");
-            if (c.Coluna <= indCabeca || c.Coluna > qtdColunas)
+            if (novaCelula.Coluna <= indCabeca || novaCelula.Coluna > qtdColunas)
                 throw new Exception("Coluna da célula inválida");
+            Celula cabecaLinha = cabeca;
+            for (int l = 1; l <= novaCelula.Linha; l++)
+                cabecaLinha = cabecaLinha.Abaixo;
+            Celula cabecaColuna = cabeca;
+            for (int c = 1; c <= novaCelula.Coluna; c++)
+                cabecaColuna = cabecaColuna.Direita;
+            Celula esquerda = cabecaLinha;
+            for (int c = 1; c < novaCelula.Coluna; c++)
+            {
+                if (esquerda.Direita.Coluna == cabecaLinha.Coluna)
+                    break;
+                esquerda = esquerda.Direita;
+            }
+            esquerda.Direita = novaCelula;
+            Celula acima = cabecaColuna;
+            for(int l=1; l<cabeca.Linha; l++)
+            {
+                if (acima.Abaixo.Linha == cabecaColuna.Linha)
+                    break;
+                acima = acima.Abaixo;
+            }
+            acima.Abaixo = novaCelula;
+            Celula cabecaLinhaAbaixo = cabecaLinha.Abaixo;
+            Celula abaixo = cabecaLinhaAbaixo;
+            for(int c=1; c<=novaCelula.Coluna; c++)
+            {
+                if (abaixo.Direita.Coluna == cabecaLinhaAbaixo.Coluna)
+                    break;
+                abaixo = abaixo.Direita;
+                if (abaixo.Coluna==novaCelula.Coluna)
+                {
+                    novaCelula.Abaixo = abaixo;
+                    break;
+                }
+            }
+            Celula cabecaColunaDireita = cabecaColuna.Direita;
+            Celula direita = cabecaColunaDireita;
+            for (int l = 1; l <= novaCelula.Linha; l++)
+            {
+                if (direita.Abaixo.Linha== cabecaColunaDireita.Linha)
+                    break;
+                direita = direita.Abaixo;
+                if (direita.Linha== novaCelula.Linha)
+                {
+                    novaCelula.Direita = direita;
+                    break;
+                }
+            }
+        }
+
+        public void Exibir(ListBox lsb)
+        {
 
         }
     }

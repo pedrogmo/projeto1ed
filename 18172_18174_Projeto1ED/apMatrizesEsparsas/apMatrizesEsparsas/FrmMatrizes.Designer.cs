@@ -75,6 +75,7 @@
             this.dgvMatriz1.Name = "dgvMatriz1";
             this.dgvMatriz1.Size = new System.Drawing.Size(357, 223);
             this.dgvMatriz1.TabIndex = 0;
+            this.dgvMatriz1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatriz1_CellEndEdit);
             // 
             // dgvMatrizResult
             // 

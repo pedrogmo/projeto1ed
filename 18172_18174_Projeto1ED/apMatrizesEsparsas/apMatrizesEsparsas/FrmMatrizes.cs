@@ -63,6 +63,12 @@ namespace apMatrizesEsparsas
             dgvMatriz2.ColumnCount = matriz2.QtdColunas;
         }
 
+        private void dgvMatriz1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            matriz1.Incluir(new Celula(double.Parse(dgvMatriz1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()), 
+                e.RowIndex+1, e.ColumnIndex+1,null,null));
+        }
+
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
 
