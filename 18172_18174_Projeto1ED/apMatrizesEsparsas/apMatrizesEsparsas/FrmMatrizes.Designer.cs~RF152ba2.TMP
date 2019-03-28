@@ -55,7 +55,7 @@
             this.lblColunas2 = new System.Windows.Forms.Label();
             this.lblLinhas2 = new System.Windows.Forms.Label();
             this.btnLerArquivo2 = new System.Windows.Forms.Button();
-            this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
+            this.btnMultiplicarMatriz = new System.Windows.Forms.Button();
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
             this.gbResultado = new System.Windows.Forms.GroupBox();
             this.btnExibir2 = new System.Windows.Forms.Button();
@@ -128,6 +128,7 @@
             this.txtValor.Size = new System.Drawing.Size(100, 30);
             this.txtValor.TabIndex = 23;
             this.txtValor.Visible = false;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             // 
             // btnPesquisar
             // 
@@ -233,6 +234,7 @@
             this.lblK.TabIndex = 7;
             this.lblK.Text = "K";
             this.lblK.Visible = false;
+            this.lblK.Click += new System.EventHandler(this.lblK_Click);
             // 
             // txtK
             // 
@@ -241,6 +243,7 @@
             this.txtK.Size = new System.Drawing.Size(140, 30);
             this.txtK.TabIndex = 6;
             this.txtK.Visible = false;
+            this.txtK.TextChanged += new System.EventHandler(this.txtK_TextChanged);
             // 
             // btnMultiplicarConstante
             // 
@@ -318,7 +321,6 @@
             this.btnPesquisar2.Text = "Pesquisar";
             this.btnPesquisar2.UseVisualStyleBackColor = true;
             this.btnPesquisar2.Visible = false;
-            this.btnPesquisar2.Click += new System.EventHandler(this.btnPesquisar2_Click);
             // 
             // nudLinhas2
             // 
@@ -397,15 +399,15 @@
             this.btnLerArquivo2.UseVisualStyleBackColor = true;
             this.btnLerArquivo2.Click += new System.EventHandler(this.btnLerArquivo2_Click);
             // 
-            // btnMultiplicarMatrizes
+            // btnMultiplicarMatriz
             // 
-            this.btnMultiplicarMatrizes.Location = new System.Drawing.Point(209, 29);
-            this.btnMultiplicarMatrizes.Name = "btnMultiplicarMatrizes";
-            this.btnMultiplicarMatrizes.Size = new System.Drawing.Size(197, 50);
-            this.btnMultiplicarMatrizes.TabIndex = 5;
-            this.btnMultiplicarMatrizes.Text = "Multiplicar Matrizes";
-            this.btnMultiplicarMatrizes.UseVisualStyleBackColor = true;
-            this.btnMultiplicarMatrizes.Click += new System.EventHandler(this.btnMultiplicarMatrizes_Click);
+            this.btnMultiplicarMatriz.Location = new System.Drawing.Point(209, 29);
+            this.btnMultiplicarMatriz.Name = "btnMultiplicarMatriz";
+            this.btnMultiplicarMatriz.Size = new System.Drawing.Size(197, 50);
+            this.btnMultiplicarMatriz.TabIndex = 5;
+            this.btnMultiplicarMatriz.Text = "Multiplicar Matrizes";
+            this.btnMultiplicarMatriz.UseVisualStyleBackColor = true;
+            this.btnMultiplicarMatriz.Click += new System.EventHandler(this.btnMultiplicarMatriz_Click);
             // 
             // btnSomarMatrizes
             // 
@@ -422,7 +424,7 @@
             this.gbResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.gbResultado.Controls.Add(this.btnExibir2);
             this.gbResultado.Controls.Add(this.btnExibir1);
-            this.gbResultado.Controls.Add(this.btnMultiplicarMatrizes);
+            this.gbResultado.Controls.Add(this.btnMultiplicarMatriz);
             this.gbResultado.Controls.Add(this.btnSomarMatrizes);
             this.gbResultado.Location = new System.Drawing.Point(34, 382);
             this.gbResultado.Name = "gbResultado";
@@ -455,7 +457,7 @@
             // 
             this.ofdAbrir.DefaultExt = "txt";
             this.ofdAbrir.FileName = "openFileDialog1";
-            this.ofdAbrir.InitialDirectory = "c:\\temp";
+            this.ofdAbrir.InitialDirectory = "c:/temp";
             // 
             // FrmMatrizes
             // 
@@ -470,6 +472,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmMatrizes";
             this.Text = "Matrizes Esparsas";
+            this.Load += new System.EventHandler(this.FrmMatrizes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).EndInit();
             this.gbMatriz1.ResumeLayout(false);
             this.gbMatriz1.PerformLayout();
@@ -493,7 +496,7 @@
         private System.Windows.Forms.Label lblK;
         private System.Windows.Forms.TextBox txtK;
         private System.Windows.Forms.GroupBox gbMatriz2;
-        private System.Windows.Forms.Button btnMultiplicarMatrizes;
+        private System.Windows.Forms.Button btnMultiplicarMatriz;
         private System.Windows.Forms.Button btnSomarMatrizes;
         private System.Windows.Forms.Button btnLerArquivo2;
         private System.Windows.Forms.GroupBox gbResultado;

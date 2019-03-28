@@ -131,5 +131,21 @@ namespace apMatrizesEsparsas
                 cabecaColuna = cabecaColuna.Direita;
             }
         }
+
+        public double ValorDe(int linha, int coluna)
+        {
+            if (linha <= indCabeca || linha > qtdLinhas)
+                throw new Exception("Linha inválida");
+            if (coluna <= indCabeca || coluna > qtdColunas)
+                throw new Exception("Coluna inválida");
+            Celula cabecaLinha=cabeca, cabecaColuna=cabeca, esquerda=null, acima=null;
+            for (int l = 1; l <= linha; l++)
+                cabecaLinha = cabecaLinha.Abaixo;
+            for (int c = 1; c <= coluna; c++)
+                cabecaColuna = cabecaColuna.Direita;
+            if (!ExisteCelula(cabecaLinha,cabecaColuna,ref esquerda,ref acima))
+                throw new Exception("Celula inexistente");
+            return esquerda.Direita.Valor;
+        }
     }
 }
