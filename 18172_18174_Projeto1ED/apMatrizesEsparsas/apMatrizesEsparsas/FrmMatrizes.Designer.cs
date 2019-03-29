@@ -31,6 +31,7 @@
             this.dgvMatrizResult = new System.Windows.Forms.DataGridView();
             this.btnLerArquivo1 = new System.Windows.Forms.Button();
             this.gbMatriz1 = new System.Windows.Forms.GroupBox();
+            this.btnExcluirMatriz = new System.Windows.Forms.Button();
             this.lblMatriz = new System.Windows.Forms.Label();
             this.cbxMatrizes = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.btnExibir2 = new System.Windows.Forms.Button();
             this.btnExibir1 = new System.Windows.Forms.Button();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
-            this.btnExcluirMatriz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).BeginInit();
             this.gbMatriz1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
@@ -73,12 +73,12 @@
             this.dgvMatrizResult.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dgvMatrizResult.Name = "dgvMatrizResult";
             this.dgvMatrizResult.ReadOnly = true;
-            this.dgvMatrizResult.Size = new System.Drawing.Size(500, 239);
+            this.dgvMatrizResult.Size = new System.Drawing.Size(559, 239);
             this.dgvMatrizResult.TabIndex = 2;
             // 
             // btnLerArquivo1
             // 
-            this.btnLerArquivo1.Location = new System.Drawing.Point(279, 316);
+            this.btnLerArquivo1.Location = new System.Drawing.Point(216, 302);
             this.btnLerArquivo1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnLerArquivo1.Name = "btnLerArquivo1";
             this.btnLerArquivo1.Size = new System.Drawing.Size(155, 32);
@@ -109,17 +109,28 @@
             this.gbMatriz1.Controls.Add(this.btnMultiplicarConstante);
             this.gbMatriz1.Controls.Add(this.btnSomarConstante);
             this.gbMatriz1.Controls.Add(this.btnLerArquivo1);
-            this.gbMatriz1.Location = new System.Drawing.Point(524, 12);
+            this.gbMatriz1.Location = new System.Drawing.Point(583, 11);
             this.gbMatriz1.Name = "gbMatriz1";
-            this.gbMatriz1.Size = new System.Drawing.Size(454, 402);
+            this.gbMatriz1.Size = new System.Drawing.Size(395, 402);
             this.gbMatriz1.TabIndex = 5;
             this.gbMatriz1.TabStop = false;
             this.gbMatriz1.Text = "Matriz";
             // 
+            // btnExcluirMatriz
+            // 
+            this.btnExcluirMatriz.Location = new System.Drawing.Point(216, 249);
+            this.btnExcluirMatriz.Name = "btnExcluirMatriz";
+            this.btnExcluirMatriz.Size = new System.Drawing.Size(155, 47);
+            this.btnExcluirMatriz.TabIndex = 27;
+            this.btnExcluirMatriz.Text = "Excluir Matriz";
+            this.btnExcluirMatriz.UseVisualStyleBackColor = true;
+            this.btnExcluirMatriz.Visible = false;
+            this.btnExcluirMatriz.Click += new System.EventHandler(this.btnExcluirMatriz_Click);
+            // 
             // lblMatriz
             // 
             this.lblMatriz.AutoSize = true;
-            this.lblMatriz.Location = new System.Drawing.Point(252, 50);
+            this.lblMatriz.Location = new System.Drawing.Point(218, 48);
             this.lblMatriz.Name = "lblMatriz";
             this.lblMatriz.Size = new System.Drawing.Size(119, 23);
             this.lblMatriz.TabIndex = 26;
@@ -132,7 +143,7 @@
             this.cbxMatrizes.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cbxMatrizes.Location = new System.Drawing.Point(250, 76);
+            this.cbxMatrizes.Location = new System.Drawing.Point(216, 74);
             this.cbxMatrizes.Name = "cbxMatrizes";
             this.cbxMatrizes.Size = new System.Drawing.Size(121, 31);
             this.cbxMatrizes.TabIndex = 25;
@@ -140,7 +151,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(279, 356);
+            this.btnLimpar.Location = new System.Drawing.Point(216, 342);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(155, 35);
             this.btnLimpar.TabIndex = 24;
@@ -153,7 +164,7 @@
             // 
             this.txtValor.Location = new System.Drawing.Point(21, 207);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(413, 30);
+            this.txtValor.Size = new System.Drawing.Size(331, 30);
             this.txtValor.TabIndex = 23;
             this.txtValor.Visible = false;
             // 
@@ -226,7 +237,7 @@
             // 
             // btnCriarMatriz
             // 
-            this.btnCriarMatriz.Location = new System.Drawing.Point(298, 261);
+            this.btnCriarMatriz.Location = new System.Drawing.Point(216, 255);
             this.btnCriarMatriz.Name = "btnCriarMatriz";
             this.btnCriarMatriz.Size = new System.Drawing.Size(136, 35);
             this.btnCriarMatriz.TabIndex = 12;
@@ -350,17 +361,6 @@
             this.ofdAbrir.DefaultExt = "txt";
             this.ofdAbrir.FileName = "openFileDialog1";
             this.ofdAbrir.InitialDirectory = "c:\\temp";
-            // 
-            // btnExcluirMatriz
-            // 
-            this.btnExcluirMatriz.Location = new System.Drawing.Point(279, 255);
-            this.btnExcluirMatriz.Name = "btnExcluirMatriz";
-            this.btnExcluirMatriz.Size = new System.Drawing.Size(155, 47);
-            this.btnExcluirMatriz.TabIndex = 27;
-            this.btnExcluirMatriz.Text = "Excluir Matriz";
-            this.btnExcluirMatriz.UseVisualStyleBackColor = true;
-            this.btnExcluirMatriz.Visible = false;
-            this.btnExcluirMatriz.Click += new System.EventHandler(this.btnExcluirMatriz_Click);
             // 
             // FrmMatrizes
             // 

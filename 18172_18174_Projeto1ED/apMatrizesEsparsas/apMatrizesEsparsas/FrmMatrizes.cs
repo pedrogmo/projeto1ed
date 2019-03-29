@@ -211,6 +211,8 @@ namespace apMatrizesEsparsas
                 matriz1 = null;
             else
                 matriz2 = null;
+            nudLinhas.Maximum = int.MaxValue;
+            nudColunas.Maximum = int.MaxValue;
             HabilitarComponentes(false);
         }
 
