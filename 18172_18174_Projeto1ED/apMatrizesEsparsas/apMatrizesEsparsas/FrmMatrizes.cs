@@ -20,26 +20,75 @@ namespace apMatrizesEsparsas
             InitializeComponent();
         }
 
-        private void btnLerArquivo1_Click(object sender, EventArgs e)
+        private void FrmMatrizes_Load(object sender, EventArgs e)
         {
-            LerMatriz(ref matriz1);
-            btnExcluir.Visible = true;
-            btnIncluir.Visible = true;
-            btnPesquisar.Visible = true;
-            txtValor.Visible = true;
-            lblK.Visible = true;
-            txtK.Visible = true;
-            btnSomarConstante.Visible = true;
-            btnMultiplicarConstante.Visible = true;
+            cbxMatrizes.SelectedIndex = 0;
         }
 
-        private void btnLerArquivo2_Click(object sender, EventArgs e)
+        private void cbxMatrizes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LerMatriz(ref matriz2);
-            btnExcluir2.Visible = true;
-            btnIncluir2.Visible = true;
-            btnPesquisar2.Visible = true;
-            txtValor2.Visible = true;
+            if (cbxMatrizes.SelectedIndex == 0)
+            {
+                if (matriz1 == null)
+                {
+                    HabilitarComponentes(false);
+                    nudLinhas.Maximum = int.MaxValue;
+                    nudColunas.Maximum = int.MaxValue;
+                }
+                else
+                {
+                    HabilitarComponentes(true);
+                    nudLinhas.Maximum = matriz1.QtdLinhas;
+                    nudColunas.Maximum = matriz1.QtdColunas;
+                }
+            }
+            else
+            {
+                if (matriz2 == null)
+                {
+                    HabilitarComponentes(false);
+                    nudLinhas.Maximum = int.MaxValue;
+                    nudColunas.Maximum = int.MaxValue;
+                }
+                else
+                {
+                    HabilitarComponentes(true);
+                    nudLinhas.Maximum = matriz2.QtdLinhas;
+                    nudColunas.Maximum = matriz2.QtdColunas;
+                }
+            }
+        }
+
+        private void HabilitarComponentes(bool b)
+        {
+            btnExcluir.Visible = b;
+            btnIncluir.Visible = b;
+            btnPesquisar.Visible = b;
+            txtValor.Visible = b;
+            btnSomarConstante.Visible = b;
+            btnMultiplicarConstante.Visible = b;
+            lblK.Visible = b;
+            txtK.Visible = b;
+            btnLimpar.Visible = b;
+            btnExcluirMatriz.Visible = b;
+            btnCriarMatriz.Visible = !b;
+        }
+
+        private void btnLerArquivo1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxMatrizes.SelectedIndex == 0)
+                    LerMatriz(ref matriz1);
+                else
+                    LerMatriz(ref matriz2);
+                HabilitarComponentes(true);
+                MessageBox.Show("Matriz lida", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void LerMatriz(ref ListaCruzada m)
@@ -67,83 +116,108 @@ namespace apMatrizesEsparsas
 
         private void btnCriarMatriz_Click(object sender, EventArgs e)
         {
-            matriz1 = new ListaCruzada((int)nudLinhas.Value, (int)nudColunas.Value);
-            nudLinhas.Maximum = matriz1.QtdLinhas;
-            nudColunas.Maximum = matriz1.QtdColunas;
-            MessageBox.Show("Matriz criada");
-            btnExcluir.Visible = true;
-            btnIncluir.Visible = true;
-            btnPesquisar.Visible = true;
-            txtValor.Visible = true;
-            btnSomarConstante.Visible = true;
-            btnMultiplicarConstante.Visible = true;
-            lblK.Visible = true;
-            txtK.Visible = true;
-        }
-
-        private void btnCriarMatriz2_Click(object sender, EventArgs e)
-        {
-            matriz2 = new ListaCruzada((int)nudLinhas2.Value, (int)nudColunas2.Value);
-            nudLinhas2.Maximum = matriz2.QtdLinhas;
-            nudColunas2.Maximum = matriz2.QtdColunas;
-            MessageBox.Show("Matriz criada");
-            btnExcluir2.Visible = true;
-            btnIncluir2.Visible = true;
-            btnPesquisar2.Visible = true;
-            txtValor2.Visible = true;
+            if (cbxMatrizes.SelectedIndex == 0)
+            {
+                matriz1 = new ListaCruzada((int)nudLinhas.Value, (int)nudColunas.Value);
+                nudLinhas.Maximum = matriz1.QtdLinhas;
+                nudColunas.Maximum = matriz1.QtdColunas;
+            }
+            else
+            {
+                matriz2 = new ListaCruzada((int)nudLinhas.Value, (int)nudColunas.Value);
+                nudLinhas.Maximum = matriz2.QtdLinhas;
+                nudColunas.Maximum = matriz2.QtdColunas;
+            }
+            MessageBox.Show("Matriz criada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            HabilitarComponentes(true);
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            matriz1.Incluir(new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null));
-        }
-
-        private void btnIncluir2_Click(object sender, EventArgs e)
-        {
-            matriz2.Incluir(new Celula(double.Parse(txtValor2.Text), (int)nudLinhas2.Value, (int)nudColunas2.Value, null, null));
+            try
+            {
+                if (cbxMatrizes.SelectedIndex == 0)
+                    matriz1.Incluir(new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null));
+                else
+                    matriz2.Incluir(new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null));
+                txtValor.Text = "";
+                MessageBox.Show("Valor incluído", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void btnExibir1_Click(object sender, EventArgs e)
         {
             if (matriz1 != null)
                 matriz1.Exibir(dgvMatrizResult);
+            else
+                dgvMatrizResult.Rows.Clear();
         }
 
         private void btnExibir2_Click(object sender, EventArgs e)
         {
             if (matriz2 != null)
                 matriz2.Exibir(dgvMatrizResult);
+            else
+                dgvMatrizResult.Rows.Clear();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
-        }
-
-        private void btnPesquisar2_Click(object sender, EventArgs e)
-        {
-            txtValor2.Text = matriz2.ValorDe((int)nudLinhas2.Value, (int)nudColunas2.Value).ToString();
+            try
+            {
+                if (cbxMatrizes.SelectedIndex == 0)
+                    txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
+                else
+                    txtValor.Text = matriz2.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (cbxMatrizes.SelectedIndex == 0)
+                    matriz1.Excluir((int)nudLinhas.Value, (int)nudColunas.Value);
+                else
+                    matriz2.Excluir((int)nudLinhas.Value, (int)nudColunas.Value);
+                MessageBox.Show("Valor excluído", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+        }
 
-        }        
-
-        private void lblK_Click(object sender, EventArgs e)
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
+            if (cbxMatrizes.SelectedIndex == 0)
+                matriz1.Limpar();
+            else
+                matriz2.Limpar();
+            MessageBox.Show("Matriz limpada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnExcluirMatriz_Click(object sender, EventArgs e)
+        {
+            if (cbxMatrizes.SelectedIndex == 0)
+                matriz1 = null;
+            else
+                matriz2 = null;
+            HabilitarComponentes(false);
         }
 
         private void txtK_TextChanged(object sender, EventArgs e)
         {
             
         }        
-
-        private void btnSomarConstante_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnMultiplicarConstante_Click(object sender, EventArgs e)
         {
@@ -159,5 +233,7 @@ namespace apMatrizesEsparsas
         {
 
         }
+
+        //ValorDe, Excluir, Limpar, alterações visuais
     }
 }

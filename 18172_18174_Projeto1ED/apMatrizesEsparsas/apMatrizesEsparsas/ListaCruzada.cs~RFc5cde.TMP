@@ -110,7 +110,20 @@ namespace apMatrizesEsparsas
             }
             else
                 novaCelula.Direita = cabecaLinha;
-        }        
+        }
+
+        public void Excluir(int linha, int coluna)
+        {
+            if (linha <= indCabeca || linha > qtdLinhas)
+                throw new Exception("Linha inválida");
+            if (coluna <= indCabeca || coluna > qtdColunas)
+                throw new Exception("Coluna inválida");
+            Celula cabecaLinha = cabeca, cabecaColuna = cabeca, esquerda = null, direita = null;
+            for (int l = 1; l <= linha; l++)
+                cabecaLinha = cabecaLinha.Abaixo;
+            for (int c = 1; c <= coluna; c++)
+                cabecaColuna = cabecaColuna.Direita;
+        }
 
         public void Exibir(DataGridView dgv)
         {
@@ -146,31 +159,6 @@ namespace apMatrizesEsparsas
             if (!ExisteCelula(cabecaLinha,cabecaColuna,ref esquerda,ref acima))
                 throw new Exception("Celula inexistente");
             return esquerda.Direita.Valor;
-        }
-
-        public void Excluir(int linha, int coluna)
-        {
-            if (linha <= indCabeca || linha > qtdLinhas)
-                throw new Exception("Linha inválida");
-            if (coluna <= indCabeca || coluna > qtdColunas)
-                throw new Exception("Coluna inválida");
-            Celula cabecaLinha = cabeca, cabecaColuna = cabeca, esquerda = null, acima = null;
-            for (int l = 1; l <= linha; l++)
-                cabecaLinha = cabecaLinha.Abaixo;
-            for (int c = 1; c <= coluna; c++)
-                cabecaColuna = cabecaColuna.Direita;
-            if (!ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                throw new Exception("Célula inexistente");
-            acima.Abaixo = acima.Abaixo.Abaixo;
-            esquerda.Direita = esquerda.Direita.Direita;
-        }
-
-        public void Limpar()
-        {
-            for (Celula coluna = cabeca.Direita; coluna.Coluna != cabeca.Coluna; coluna = coluna.Direita)
-                coluna.Abaixo = coluna;
-            for (Celula linha = cabeca.Abaixo; linha.Linha != cabeca.Linha; linha = linha.Abaixo)
-                linha.Direita = linha;
         }
     }
 }
