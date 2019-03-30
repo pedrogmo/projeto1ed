@@ -73,12 +73,12 @@
             this.dgvMatrizResult.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dgvMatrizResult.Name = "dgvMatrizResult";
             this.dgvMatrizResult.ReadOnly = true;
-            this.dgvMatrizResult.Size = new System.Drawing.Size(559, 239);
+            this.dgvMatrizResult.Size = new System.Drawing.Size(749, 388);
             this.dgvMatrizResult.TabIndex = 2;
             // 
             // btnLerArquivo1
             // 
-            this.btnLerArquivo1.Location = new System.Drawing.Point(216, 302);
+            this.btnLerArquivo1.Location = new System.Drawing.Point(188, 142);
             this.btnLerArquivo1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnLerArquivo1.Name = "btnLerArquivo1";
             this.btnLerArquivo1.Size = new System.Drawing.Size(155, 32);
@@ -109,18 +109,18 @@
             this.gbMatriz1.Controls.Add(this.btnMultiplicarConstante);
             this.gbMatriz1.Controls.Add(this.btnSomarConstante);
             this.gbMatriz1.Controls.Add(this.btnLerArquivo1);
-            this.gbMatriz1.Location = new System.Drawing.Point(583, 11);
+            this.gbMatriz1.Location = new System.Drawing.Point(773, 11);
             this.gbMatriz1.Name = "gbMatriz1";
-            this.gbMatriz1.Size = new System.Drawing.Size(395, 402);
+            this.gbMatriz1.Size = new System.Drawing.Size(395, 551);
             this.gbMatriz1.TabIndex = 5;
             this.gbMatriz1.TabStop = false;
             this.gbMatriz1.Text = "Matriz";
             // 
             // btnExcluirMatriz
             // 
-            this.btnExcluirMatriz.Location = new System.Drawing.Point(216, 249);
+            this.btnExcluirMatriz.Location = new System.Drawing.Point(24, 142);
             this.btnExcluirMatriz.Name = "btnExcluirMatriz";
-            this.btnExcluirMatriz.Size = new System.Drawing.Size(155, 47);
+            this.btnExcluirMatriz.Size = new System.Drawing.Size(155, 33);
             this.btnExcluirMatriz.TabIndex = 27;
             this.btnExcluirMatriz.Text = "Excluir Matriz";
             this.btnExcluirMatriz.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(216, 342);
+            this.btnLimpar.Location = new System.Drawing.Point(234, 393);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(155, 35);
             this.btnLimpar.TabIndex = 24;
@@ -162,15 +162,15 @@
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(21, 207);
+            this.txtValor.Location = new System.Drawing.Point(21, 264);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(331, 30);
+            this.txtValor.Size = new System.Drawing.Size(316, 30);
             this.txtValor.TabIndex = 23;
             this.txtValor.Visible = false;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(216, 160);
+            this.btnPesquisar.Location = new System.Drawing.Point(216, 217);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(118, 34);
             this.btnPesquisar.TabIndex = 17;
@@ -181,7 +181,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(121, 160);
+            this.btnExcluir.Location = new System.Drawing.Point(121, 217);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 35);
             this.btnExcluir.TabIndex = 16;
@@ -192,7 +192,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Location = new System.Drawing.Point(21, 160);
+            this.btnIncluir.Location = new System.Drawing.Point(21, 217);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(94, 35);
             this.btnIncluir.TabIndex = 15;
@@ -237,9 +237,9 @@
             // 
             // btnCriarMatriz
             // 
-            this.btnCriarMatriz.Location = new System.Drawing.Point(216, 255);
+            this.btnCriarMatriz.Location = new System.Drawing.Point(34, 142);
             this.btnCriarMatriz.Name = "btnCriarMatriz";
-            this.btnCriarMatriz.Size = new System.Drawing.Size(136, 35);
+            this.btnCriarMatriz.Size = new System.Drawing.Size(136, 33);
             this.btnCriarMatriz.TabIndex = 12;
             this.btnCriarMatriz.Text = "Criar Matriz";
             this.btnCriarMatriz.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@
             // lblK
             // 
             this.lblK.AutoSize = true;
-            this.lblK.Location = new System.Drawing.Point(28, 261);
+            this.lblK.Location = new System.Drawing.Point(30, 343);
             this.lblK.Name = "lblK";
             this.lblK.Size = new System.Drawing.Size(23, 23);
             this.lblK.TabIndex = 7;
@@ -275,7 +275,7 @@
             // 
             // txtK
             // 
-            this.txtK.Location = new System.Drawing.Point(54, 258);
+            this.txtK.Location = new System.Drawing.Point(56, 340);
             this.txtK.Name = "txtK";
             this.txtK.Size = new System.Drawing.Size(140, 30);
             this.txtK.TabIndex = 6;
@@ -283,7 +283,7 @@
             // 
             // btnMultiplicarConstante
             // 
-            this.btnMultiplicarConstante.Location = new System.Drawing.Point(32, 334);
+            this.btnMultiplicarConstante.Location = new System.Drawing.Point(34, 388);
             this.btnMultiplicarConstante.Name = "btnMultiplicarConstante";
             this.btnMultiplicarConstante.Size = new System.Drawing.Size(154, 40);
             this.btnMultiplicarConstante.TabIndex = 5;
@@ -294,7 +294,7 @@
             // 
             // btnSomarConstante
             // 
-            this.btnSomarConstante.Location = new System.Drawing.Point(32, 296);
+            this.btnSomarConstante.Location = new System.Drawing.Point(34, 436);
             this.btnSomarConstante.Name = "btnSomarConstante";
             this.btnSomarConstante.Size = new System.Drawing.Size(154, 35);
             this.btnSomarConstante.TabIndex = 4;
@@ -329,7 +329,7 @@
             this.gbResultado.Controls.Add(this.btnExibir1);
             this.gbResultado.Controls.Add(this.btnMultiplicarMatrizes);
             this.gbResultado.Controls.Add(this.btnSomarMatrizes);
-            this.gbResultado.Location = new System.Drawing.Point(34, 261);
+            this.gbResultado.Location = new System.Drawing.Point(34, 410);
             this.gbResultado.Name = "gbResultado";
             this.gbResultado.Size = new System.Drawing.Size(422, 152);
             this.gbResultado.TabIndex = 8;
@@ -366,7 +366,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 426);
+            this.ClientSize = new System.Drawing.Size(1180, 575);
             this.Controls.Add(this.gbResultado);
             this.Controls.Add(this.gbMatriz1);
             this.Controls.Add(this.dgvMatrizResult);
