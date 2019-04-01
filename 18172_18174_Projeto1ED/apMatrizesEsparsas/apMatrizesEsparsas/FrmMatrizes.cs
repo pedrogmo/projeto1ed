@@ -66,7 +66,6 @@ namespace apMatrizesEsparsas
             btnPesquisar.Visible = b;
             txtValor.Visible = b;
             btnSomarConstante.Visible = b;
-            btnMultiplicarConstante.Visible = b;
             lblK.Visible = b;
             txtK.Visible = b;
             btnLimpar.Visible = b;
@@ -216,15 +215,10 @@ namespace apMatrizesEsparsas
             HabilitarComponentes(false);
         }
 
-        private void txtK_TextChanged(object sender, EventArgs e)
-        {
-            
-        }        
-
-        private void btnMultiplicarConstante_Click(object sender, EventArgs e)
+        private void btnSomarConstante_Click(object sender, EventArgs e)
         {
 
-        }        
+        }
 
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
@@ -235,7 +229,5 @@ namespace apMatrizesEsparsas
         {
 
         }
-
-        //ValorDe, Excluir, Limpar, alterações visuais
     }
 }

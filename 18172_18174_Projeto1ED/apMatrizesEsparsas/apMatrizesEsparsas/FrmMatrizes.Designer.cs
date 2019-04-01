@@ -46,7 +46,6 @@
             this.lblLinhas = new System.Windows.Forms.Label();
             this.lblK = new System.Windows.Forms.Label();
             this.txtK = new System.Windows.Forms.TextBox();
-            this.btnMultiplicarConstante = new System.Windows.Forms.Button();
             this.btnSomarConstante = new System.Windows.Forms.Button();
             this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
@@ -106,7 +105,6 @@
             this.gbMatriz1.Controls.Add(this.lblLinhas);
             this.gbMatriz1.Controls.Add(this.lblK);
             this.gbMatriz1.Controls.Add(this.txtK);
-            this.gbMatriz1.Controls.Add(this.btnMultiplicarConstante);
             this.gbMatriz1.Controls.Add(this.btnSomarConstante);
             this.gbMatriz1.Controls.Add(this.btnLerArquivo1);
             this.gbMatriz1.Location = new System.Drawing.Point(773, 11);
@@ -151,7 +149,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(234, 393);
+            this.btnLimpar.Location = new System.Drawing.Point(216, 337);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(155, 35);
             this.btnLimpar.TabIndex = 24;
@@ -281,26 +279,16 @@
             this.txtK.TabIndex = 6;
             this.txtK.Visible = false;
             // 
-            // btnMultiplicarConstante
-            // 
-            this.btnMultiplicarConstante.Location = new System.Drawing.Point(34, 388);
-            this.btnMultiplicarConstante.Name = "btnMultiplicarConstante";
-            this.btnMultiplicarConstante.Size = new System.Drawing.Size(154, 40);
-            this.btnMultiplicarConstante.TabIndex = 5;
-            this.btnMultiplicarConstante.Text = "Multiplicar K";
-            this.btnMultiplicarConstante.UseVisualStyleBackColor = true;
-            this.btnMultiplicarConstante.Visible = false;
-            this.btnMultiplicarConstante.Click += new System.EventHandler(this.btnMultiplicarConstante_Click);
-            // 
             // btnSomarConstante
             // 
-            this.btnSomarConstante.Location = new System.Drawing.Point(34, 436);
+            this.btnSomarConstante.Location = new System.Drawing.Point(34, 393);
             this.btnSomarConstante.Name = "btnSomarConstante";
             this.btnSomarConstante.Size = new System.Drawing.Size(154, 35);
             this.btnSomarConstante.TabIndex = 4;
             this.btnSomarConstante.Text = "Somar K";
             this.btnSomarConstante.UseVisualStyleBackColor = true;
             this.btnSomarConstante.Visible = false;
+            this.btnSomarConstante.Click += new System.EventHandler(this.btnSomarConstante_Click);
             // 
             // btnMultiplicarMatrizes
             // 
@@ -389,7 +377,6 @@
         private System.Windows.Forms.DataGridView dgvMatrizResult;
         private System.Windows.Forms.Button btnLerArquivo1;
         private System.Windows.Forms.GroupBox gbMatriz1;
-        private System.Windows.Forms.Button btnMultiplicarConstante;
         private System.Windows.Forms.Button btnSomarConstante;
         private System.Windows.Forms.Label lblK;
         private System.Windows.Forms.TextBox txtK;
