@@ -217,17 +217,36 @@ namespace apMatrizesEsparsas
 
         private void btnSomarConstante_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (cbxMatrizes.SelectedIndex == 0)
+                    resultado = matriz1.SomaConstante(double.Parse(txtK.Text));
+                else
+                    resultado = matriz2.SomaConstante(double.Parse(txtK.Text));
+                resultado.Exibir(dgvMatrizResult);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
-
+            if (matriz1 != null && matriz2 != null)
+            {
+                resultado = matriz1.SomaMatriz(matriz2);
+                resultado.Exibir(dgvMatrizResult);
+            }
         }
 
         private void btnMultiplicarMatrizes_Click(object sender, EventArgs e)
         {
-
+            if (matriz1 != null && matriz2 != null)
+            {
+                resultado = matriz1.MultiplicacaoMatriz(matriz2);
+                resultado.Exibir(dgvMatrizResult);
+            }
         }
     }
 }

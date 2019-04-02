@@ -172,5 +172,23 @@ namespace apMatrizesEsparsas
             for (Celula linha = cabeca.Abaixo; linha.Linha != cabeca.Linha; linha = linha.Abaixo)
                 linha.Direita = linha;
         }
+
+        public ListaCruzada SomaMatriz(ListaCruzada outra)
+        {
+            ListaCruzada ret = new ListaCruzada(1, 1);
+            return ret;
+        }
+
+        public ListaCruzada MultiplicacaoMatriz(ListaCruzada outra)
+        {
+            ListaCruzada ret = new ListaCruzada(1, 1);
+            return ret;
+        }
+
+        public ListaCruzada SomaConstante(double k)
+        {
+            ListaCruzada ret = new ListaCruzada(1, 1);
+            return ret;
+        }
     }
 }
