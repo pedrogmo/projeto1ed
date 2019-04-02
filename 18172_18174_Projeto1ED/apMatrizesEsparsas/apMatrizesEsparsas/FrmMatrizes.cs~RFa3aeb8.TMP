@@ -157,34 +157,18 @@ namespace apMatrizesEsparsas
 
         private void btnExibir1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (matriz1 != null)
-                    matriz1.Exibir(dgvMatrizResult);
-                else
-                    dgvMatrizResult.Rows.Clear();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (matriz1 != null)
+                matriz1.Exibir(dgvMatrizResult);
+            else
                 dgvMatrizResult.Rows.Clear();
-            }
         }
 
         private void btnExibir2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (matriz2 != null)
-                    matriz2.Exibir(dgvMatrizResult);
-                else
-                    dgvMatrizResult.Rows.Clear();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (matriz2 != null)
+                matriz2.Exibir(dgvMatrizResult);
+            else
                 dgvMatrizResult.Rows.Clear();
-            }
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

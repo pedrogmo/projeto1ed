@@ -121,20 +121,26 @@ namespace apMatrizesEsparsas
             dgv.Rows.Clear();
             dgv.RowCount = qtdLinhas;
             dgv.ColumnCount = qtdColunas;
-            Celula cabecaColuna = cabeca.Direita;
+            //Celula cabecaColuna = cabeca.Direita;
+            Celula cabecaLinha = cabeca.Abaixo;
             //preenche matriz com 0       
             for (int l = 0; l < qtdLinhas; l++)
             {
                 dgv.Rows[l].HeaderCell.Value = (l+1) + "";
+                Celula atual = cabecaLinha.Direita;
                 for (int c = 0; c < qtdColunas; c++)
                 {
                     if (l==0)
                         dgv.Columns[c].HeaderText = (c + 1) + "";
-                    dgv.Rows[l].Cells[c].Value = "0";
+                    if (atual.Coluna!=cabecaLinha.Coluna)
+                        dgv.Rows[atual.Linha - 1].Cells[atual.Coluna - 1].Value = atual.Valor;
+                    else
+                        dgv.Rows[l].Cells[c].Value = "0";
+                    atual = atual.Direita;
                 }
             }
             dgv.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders);
-            while (cabecaColuna.Coluna!=cabeca.Coluna)
+            /*while (cabecaColuna.Coluna!=cabeca.Coluna)
             {
                 Celula atual = cabecaColuna.Abaixo;
                 while (atual.Linha!=cabecaColuna.Linha)
@@ -143,7 +149,7 @@ namespace apMatrizesEsparsas
                     atual = atual.Abaixo;
                 }
                 cabecaColuna = cabecaColuna.Direita;
-            }
+            }*/
         }
 
         public double ValorDe(int linha, int coluna)
