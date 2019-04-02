@@ -23,6 +23,13 @@ namespace apMatrizesEsparsas
         private void FrmMatrizes_Load(object sender, EventArgs e)
         {
             cbxMatrizes.SelectedIndex = 0;
+            MessageBox.Show("Para criar uma matriz, determine a quantidade de linhas e colunas e clique no botão Criar Matriz. " +
+                            "Você também pode ler a matriz de um arquivo texto, no qual a primeira linha deve ser a quantidade " +
+                            "de linhas, a segunda é a quantidade de colunas e as demais são as células, no formato '[linha];[coluna]" +
+                            ";[valor]'. Para incluir, pesquisar e excluir, determine a linha e coluna da célula no mesmo componente usado "+
+                            "na criação. Para a inclusão, digite o valor da nova célula na caixa de texto. Também é possível realizar operações "+
+                            "com as matrizes (somá-las, multiplicá-las e somar em determinada coluna um valor real K).",
+                "Instruções", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cbxMatrizes_SelectedIndexChanged(object sender, EventArgs e)
@@ -220,9 +227,9 @@ namespace apMatrizesEsparsas
             try
             {
                 if (cbxMatrizes.SelectedIndex == 0)
-                    resultado = matriz1.SomaConstante(double.Parse(txtK.Text));
+                    resultado = matriz1.SomaConstante(double.Parse(txtK.Text), (int)nudColunas.Value);
                 else
-                    resultado = matriz2.SomaConstante(double.Parse(txtK.Text));
+                    resultado = matriz2.SomaConstante(double.Parse(txtK.Text), (int)nudColunas.Value);
                 resultado.Exibir(dgvMatrizResult);
             }
             catch (Exception exc)
@@ -235,8 +242,15 @@ namespace apMatrizesEsparsas
         {
             if (matriz1 != null && matriz2 != null)
             {
-                resultado = matriz1.SomaMatriz(matriz2);
-                resultado.Exibir(dgvMatrizResult);
+                try
+                {
+                    resultado = matriz1.SomaMatriz(matriz2);
+                    resultado.Exibir(dgvMatrizResult);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -244,8 +258,15 @@ namespace apMatrizesEsparsas
         {
             if (matriz1 != null && matriz2 != null)
             {
-                resultado = matriz1.MultiplicacaoMatriz(matriz2);
-                resultado.Exibir(dgvMatrizResult);
+                try
+                {
+                    resultado = matriz1.MultiplicacaoMatriz(matriz2);
+                    resultado.Exibir(dgvMatrizResult);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -185,7 +185,7 @@ namespace apMatrizesEsparsas
             return ret;
         }
 
-        public ListaCruzada SomaConstante(double k)
+        public ListaCruzada SomaConstante(double k, int coluna)
         {
             ListaCruzada ret = new ListaCruzada(1, 1);
             return ret;
