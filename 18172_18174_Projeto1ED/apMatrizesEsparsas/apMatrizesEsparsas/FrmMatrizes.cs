@@ -192,9 +192,9 @@ namespace apMatrizesEsparsas
             try
             {
                 if (cbxMatrizes.SelectedIndex == 0)
-                    txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
+                    txtValor.Text = matriz1.CelulaEm((int)nudLinhas.Value, (int)nudColunas.Value).Valor.ToString();
                 else
-                    txtValor.Text = matriz2.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
+                    txtValor.Text = matriz2.CelulaEm((int)nudLinhas.Value, (int)nudColunas.Value).Valor.ToString();
             }
             catch (Exception exc)
             {
@@ -243,10 +243,10 @@ namespace apMatrizesEsparsas
             try
             {
                 if (cbxMatrizes.SelectedIndex == 0)
-                    resultado = matriz1.SomaConstante(double.Parse(txtK.Text), (int)nudColunas.Value);
+                    matriz1.SomarEmColuna(double.Parse(txtK.Text), (int)nudColunas.Value);
                 else
-                    resultado = matriz2.SomaConstante(double.Parse(txtK.Text), (int)nudColunas.Value);
-                resultado.Exibir(dgvMatrizResult);
+                    matriz2.SomarEmColuna(double.Parse(txtK.Text), (int)nudColunas.Value);
+                MessageBox.Show("Coluna somada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception exc)
             {

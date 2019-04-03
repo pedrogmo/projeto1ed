@@ -80,38 +80,7 @@ namespace apMatrizesEsparsas
                 throw new Exception("Célula já existente");
             esquerda.Direita = novaCelula;
             acima.Abaixo = novaCelula;
-            if (novaCelula.Linha < qtdLinhas)
-            {
-                Celula cabecaLinhaAbaixo = cabecaLinha.Abaixo;
-                Celula abaixo = cabecaLinhaAbaixo;
-                do
-                {
-                    abaixo = abaixo.Direita;
-                    if (abaixo.Coluna == novaCelula.Coluna)
-                    {
-                        novaCelula.Abaixo = abaixo;
-                        break;
-                    }                    
-                } while (abaixo.Direita.Coluna != cabecaLinhaAbaixo.Coluna);
-            }
-            else
-                novaCelula.Abaixo = cabecaColuna;
-            if (novaCelula.Coluna < qtdColunas)
-            {
-                Celula cabecaColunaDireita = cabecaColuna.Direita;
-                Celula direita = cabecaColunaDireita;
-                do
-                {
-                    direita = direita.Abaixo;
-                    if (direita.Linha == novaCelula.Linha)
-                    {
-                        novaCelula.Direita = direita;
-                        break;
-                    }                    
-                } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
-            }
-            else
-                novaCelula.Direita = cabecaLinha;
+            InserirCelula(novaCelula, cabecaLinha, cabecaColuna);
         }        
 
         public void Exibir(DataGridView dgv)
@@ -146,7 +115,7 @@ namespace apMatrizesEsparsas
             }
         }
 
-        public double ValorDe(int linha, int coluna)
+        public Celula CelulaEm(int linha, int coluna)
         {
             if (linha <= indCabeca || linha > qtdLinhas)
                 throw new Exception("Linha inválida");
@@ -159,7 +128,7 @@ namespace apMatrizesEsparsas
                 cabecaColuna = cabecaColuna.Direita;
             if (!ExisteCelula(cabecaLinha,cabecaColuna,ref esquerda,ref acima))
                 throw new Exception("Celula inexistente");
-            return esquerda.Direita.Valor;
+            return esquerda.Direita;
         }
 
         public void Excluir(int linha, int coluna)
@@ -174,7 +143,7 @@ namespace apMatrizesEsparsas
             for (int c = 1; c <= coluna; c++)
                 cabecaColuna = cabecaColuna.Direita;
             if (!ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                throw new Exception("Célula inexistente");
+                throw new CelulaInexistenteException("Célula inexistente");
             acima.Abaixo = acima.Abaixo.Abaixo;
             esquerda.Direita = esquerda.Direita.Direita;
         }
@@ -199,10 +168,64 @@ namespace apMatrizesEsparsas
             return ret;
         }
 
-        public ListaCruzada SomaConstante(double k, int coluna)
+        public void SomarEmColuna(double k, int coluna)
         {
-            ListaCruzada ret = new ListaCruzada(1, 1);
-            return ret;
+            if (coluna <= indCabeca || coluna > qtdColunas)
+                throw new Exception("Coluna inválida");
+            Celula cabecaColuna = cabeca;
+            for (int c = 1; c <= coluna; c++)
+                cabecaColuna = cabecaColuna.Direita;
+            Celula esquerda = null, acima = null, cabecaLinha=cabeca.Abaixo;
+            while(cabecaLinha.Linha != cabeca.Linha)
+            {
+                if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
+                    esquerda.Direita.Valor += k;
+                else
+                {
+                    Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
+                    esquerda.Direita = nova;
+                    acima.Abaixo = nova;
+                    InserirCelula(nova, cabecaLinha, cabecaColuna);
+                }
+                cabecaLinha = cabecaLinha.Abaixo;
+            }
+        }
+
+        private void InserirCelula(Celula novaCelula, Celula cabecaLinha, Celula cabecaColuna)
+        {
+            
+            if (novaCelula.Linha < qtdLinhas)
+            {
+                Celula cabecaLinhaAbaixo = cabecaLinha.Abaixo;
+                Celula abaixo = cabecaLinhaAbaixo;
+                do
+                {
+                    abaixo = abaixo.Direita;
+                    if (abaixo.Coluna == novaCelula.Coluna)
+                    {
+                        novaCelula.Abaixo = abaixo;
+                        break;
+                    }
+                } while (abaixo.Direita.Coluna != cabecaLinhaAbaixo.Coluna);
+            }
+            else
+                novaCelula.Abaixo = cabecaColuna;
+            if (novaCelula.Coluna < qtdColunas)
+            {
+                Celula cabecaColunaDireita = cabecaColuna.Direita;
+                Celula direita = cabecaColunaDireita;
+                do
+                {
+                    direita = direita.Abaixo;
+                    if (direita.Linha == novaCelula.Linha)
+                    {
+                        novaCelula.Direita = direita;
+                        break;
+                    }
+                } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
+            }
+            else
+                novaCelula.Direita = cabecaLinha;
         }
     }
 }
