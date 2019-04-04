@@ -192,9 +192,9 @@ namespace apMatrizesEsparsas
             try
             {
                 if (cbxMatrizes.SelectedIndex == 0)
-                    txtValor.Text = matriz1.CelulaEm((int)nudLinhas.Value, (int)nudColunas.Value).Valor.ToString();
+                    txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
                 else
-                    txtValor.Text = matriz2.CelulaEm((int)nudLinhas.Value, (int)nudColunas.Value).Valor.ToString();
+                    txtValor.Text = matriz2.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
             }
             catch (Exception exc)
             {

@@ -115,7 +115,7 @@ namespace apMatrizesEsparsas
             }
         }
 
-        public Celula CelulaEm(int linha, int coluna)
+        public double ValorDe(int linha, int coluna)
         {
             if (linha <= indCabeca || linha > qtdLinhas)
                 throw new Exception("Linha inválida");
@@ -128,7 +128,7 @@ namespace apMatrizesEsparsas
                 cabecaColuna = cabecaColuna.Direita;
             if (!ExisteCelula(cabecaLinha,cabecaColuna,ref esquerda,ref acima))
                 throw new Exception("Celula inexistente");
-            return esquerda.Direita;
+            return esquerda.Direita.Valor;
         }
 
         public void Excluir(int linha, int coluna)
@@ -193,7 +193,7 @@ namespace apMatrizesEsparsas
 
         private void InserirCelula(Celula novaCelula, Celula cabecaLinha, Celula cabecaColuna)
         {
-            
+            novaCelula.Abaixo = cabecaColuna;
             if (novaCelula.Linha < qtdLinhas)
             {
                 Celula cabecaLinhaAbaixo = cabecaLinha.Abaixo;
@@ -207,9 +207,8 @@ namespace apMatrizesEsparsas
                         break;
                     }
                 } while (abaixo.Direita.Coluna != cabecaLinhaAbaixo.Coluna);
-            }
-            else
-                novaCelula.Abaixo = cabecaColuna;
+            }                
+            novaCelula.Direita = cabecaLinha;
             if (novaCelula.Coluna < qtdColunas)
             {
                 Celula cabecaColunaDireita = cabecaColuna.Direita;
@@ -224,8 +223,6 @@ namespace apMatrizesEsparsas
                     }
                 } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
             }
-            else
-                novaCelula.Direita = cabecaLinha;
         }
     }
 }
