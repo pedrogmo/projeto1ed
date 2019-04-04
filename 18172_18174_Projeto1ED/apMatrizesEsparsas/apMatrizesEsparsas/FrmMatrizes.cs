@@ -163,7 +163,11 @@ namespace apMatrizesEsparsas
                 if (matriz1 != null)
                     matriz1.Exibir(dgvMatrizResult);
                 else
+                {
                     dgvMatrizResult.Rows.Clear();
+                    dgvMatrizResult.RowCount = 0;
+                    dgvMatrizResult.ColumnCount = 0;
+                }
             }
             catch (Exception exc)
             {
@@ -179,7 +183,11 @@ namespace apMatrizesEsparsas
                 if (matriz2 != null)
                     matriz2.Exibir(dgvMatrizResult);
                 else
+                {
                     dgvMatrizResult.Rows.Clear();
+                    dgvMatrizResult.RowCount = 0;
+                    dgvMatrizResult.ColumnCount = 0;
+                }
             }
             catch (Exception exc)
             {
