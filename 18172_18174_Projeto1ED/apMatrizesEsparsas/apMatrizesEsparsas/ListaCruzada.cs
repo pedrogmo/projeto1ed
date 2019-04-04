@@ -154,19 +154,7 @@ namespace apMatrizesEsparsas
                 coluna.Abaixo = coluna;
             for (Celula linha = cabeca.Abaixo; linha.Linha != cabeca.Linha; linha = linha.Abaixo)
                 linha.Direita = linha;
-        }
-
-        public ListaCruzada SomaMatriz(ListaCruzada outra)
-        {
-            ListaCruzada ret = new ListaCruzada(1, 1);
-            return ret;
-        }
-
-        public ListaCruzada MultiplicacaoMatriz(ListaCruzada outra)
-        {
-            ListaCruzada ret = new ListaCruzada(1, 1);
-            return ret;
-        }
+        }        
 
         public void SomarEmColuna(double k, int coluna)
         {
@@ -223,6 +211,26 @@ namespace apMatrizesEsparsas
                     }
                 } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
             }
+        }
+
+        public ListaCruzada SomaMatriz(ListaCruzada outra)
+        {
+            if (outra.qtdLinhas != this.qtdLinhas)
+                throw new Exception("Quantidade diferente de linhas das matrizes");
+            if (outra.qtdColunas != this.qtdColunas)
+                throw new Exception("Quantidade diferentes de colunas das matrizes");
+            ListaCruzada ret = new ListaCruzada(qtdLinhas,qtdColunas);
+            //operação
+            return ret;
+        }
+
+        public ListaCruzada MultiplicacaoMatriz(ListaCruzada outra)
+        {
+            if (this.qtdColunas != outra.qtdLinhas)
+                throw new Exception("Quantidade de colunas diferente da quantidade de linhas da segunda matriz");
+            ListaCruzada ret = new ListaCruzada(qtdLinhas, outra.qtdColunas);
+            //operação
+            return ret;
         }
     }
 }

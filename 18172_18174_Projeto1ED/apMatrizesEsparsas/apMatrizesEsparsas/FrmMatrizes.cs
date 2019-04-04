@@ -78,9 +78,10 @@ namespace apMatrizesEsparsas
             btnLimpar.Visible = b;
             btnExcluirMatriz.Visible = b;
             btnCriarMatriz.Visible = !b;
+            btnLerArquivo.Visible = !b;
         }
 
-        private void btnLerArquivo1_Click(object sender, EventArgs e)
+        private void btnLerArquivo_Click(object sender, EventArgs e)
         {
             try
             {

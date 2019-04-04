@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvMatrizResult = new System.Windows.Forms.DataGridView();
-            this.btnLerArquivo1 = new System.Windows.Forms.Button();
+            this.btnLerArquivo = new System.Windows.Forms.Button();
             this.gbMatriz1 = new System.Windows.Forms.GroupBox();
             this.btnExcluirMatriz = new System.Windows.Forms.Button();
             this.lblMatriz = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             // 
             this.dgvMatrizResult.AllowUserToAddRows = false;
             this.dgvMatrizResult.AllowUserToDeleteRows = false;
+            this.dgvMatrizResult.AllowUserToResizeRows = false;
             this.dgvMatrizResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -75,16 +76,16 @@
             this.dgvMatrizResult.Size = new System.Drawing.Size(749, 388);
             this.dgvMatrizResult.TabIndex = 2;
             // 
-            // btnLerArquivo1
+            // btnLerArquivo
             // 
-            this.btnLerArquivo1.Location = new System.Drawing.Point(188, 142);
-            this.btnLerArquivo1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnLerArquivo1.Name = "btnLerArquivo1";
-            this.btnLerArquivo1.Size = new System.Drawing.Size(155, 32);
-            this.btnLerArquivo1.TabIndex = 3;
-            this.btnLerArquivo1.Text = "Ler Arquivo";
-            this.btnLerArquivo1.UseVisualStyleBackColor = true;
-            this.btnLerArquivo1.Click += new System.EventHandler(this.btnLerArquivo1_Click);
+            this.btnLerArquivo.Location = new System.Drawing.Point(188, 142);
+            this.btnLerArquivo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnLerArquivo.Name = "btnLerArquivo";
+            this.btnLerArquivo.Size = new System.Drawing.Size(155, 32);
+            this.btnLerArquivo.TabIndex = 3;
+            this.btnLerArquivo.Text = "Ler Arquivo";
+            this.btnLerArquivo.UseVisualStyleBackColor = true;
+            this.btnLerArquivo.Click += new System.EventHandler(this.btnLerArquivo_Click);
             // 
             // gbMatriz1
             // 
@@ -106,7 +107,7 @@
             this.gbMatriz1.Controls.Add(this.lblK);
             this.gbMatriz1.Controls.Add(this.txtK);
             this.gbMatriz1.Controls.Add(this.btnSomarConstante);
-            this.gbMatriz1.Controls.Add(this.btnLerArquivo1);
+            this.gbMatriz1.Controls.Add(this.btnLerArquivo);
             this.gbMatriz1.Location = new System.Drawing.Point(773, 11);
             this.gbMatriz1.Name = "gbMatriz1";
             this.gbMatriz1.Size = new System.Drawing.Size(395, 551);
@@ -149,9 +150,9 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(216, 337);
+            this.btnLimpar.Location = new System.Drawing.Point(188, 142);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(155, 35);
+            this.btnLimpar.Size = new System.Drawing.Size(155, 33);
             this.btnLimpar.TabIndex = 24;
             this.btnLimpar.Text = "Limpar Matriz";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -375,7 +376,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvMatrizResult;
-        private System.Windows.Forms.Button btnLerArquivo1;
+        private System.Windows.Forms.Button btnLerArquivo;
         private System.Windows.Forms.GroupBox gbMatriz1;
         private System.Windows.Forms.Button btnSomarConstante;
         private System.Windows.Forms.Label lblK;
