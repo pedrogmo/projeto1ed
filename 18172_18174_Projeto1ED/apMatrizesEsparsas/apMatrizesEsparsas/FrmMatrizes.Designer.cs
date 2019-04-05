@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvMatrizResult = new System.Windows.Forms.DataGridView();
+            this.dgvMatriz = new System.Windows.Forms.DataGridView();
             this.btnLerArquivo = new System.Windows.Forms.Button();
             this.gbMatriz1 = new System.Windows.Forms.GroupBox();
+            this.btnExibir = new System.Windows.Forms.Button();
             this.btnExcluirMatriz = new System.Windows.Forms.Button();
             this.lblMatriz = new System.Windows.Forms.Label();
             this.cbxMatrizes = new System.Windows.Forms.ComboBox();
@@ -49,32 +50,30 @@
             this.btnSomarConstante = new System.Windows.Forms.Button();
             this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
-            this.gbResultado = new System.Windows.Forms.GroupBox();
-            this.btnExibir2 = new System.Windows.Forms.Button();
-            this.btnExibir1 = new System.Windows.Forms.Button();
+            this.gbOperacoes = new System.Windows.Forms.GroupBox();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz)).BeginInit();
             this.gbMatriz1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).BeginInit();
-            this.gbResultado.SuspendLayout();
+            this.gbOperacoes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvMatrizResult
+            // dgvMatriz
             // 
-            this.dgvMatrizResult.AllowUserToAddRows = false;
-            this.dgvMatrizResult.AllowUserToDeleteRows = false;
-            this.dgvMatrizResult.AllowUserToResizeRows = false;
-            this.dgvMatrizResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvMatriz.AllowUserToAddRows = false;
+            this.dgvMatriz.AllowUserToDeleteRows = false;
+            this.dgvMatriz.AllowUserToResizeRows = false;
+            this.dgvMatriz.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMatrizResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatrizResult.Location = new System.Drawing.Point(15, 14);
-            this.dgvMatrizResult.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.dgvMatrizResult.Name = "dgvMatrizResult";
-            this.dgvMatrizResult.ReadOnly = true;
-            this.dgvMatrizResult.Size = new System.Drawing.Size(749, 388);
-            this.dgvMatrizResult.TabIndex = 2;
+            this.dgvMatriz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatriz.Location = new System.Drawing.Point(15, 14);
+            this.dgvMatriz.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.dgvMatriz.Name = "dgvMatriz";
+            this.dgvMatriz.Size = new System.Drawing.Size(749, 437);
+            this.dgvMatriz.TabIndex = 2;
+            this.dgvMatriz.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatriz_CellEndEdit);
             // 
             // btnLerArquivo
             // 
@@ -91,6 +90,7 @@
             // 
             this.gbMatriz1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbMatriz1.Controls.Add(this.btnExibir);
             this.gbMatriz1.Controls.Add(this.btnExcluirMatriz);
             this.gbMatriz1.Controls.Add(this.lblMatriz);
             this.gbMatriz1.Controls.Add(this.cbxMatrizes);
@@ -114,6 +114,16 @@
             this.gbMatriz1.TabIndex = 5;
             this.gbMatriz1.TabStop = false;
             this.gbMatriz1.Text = "Matriz";
+            // 
+            // btnExibir
+            // 
+            this.btnExibir.Location = new System.Drawing.Point(94, 381);
+            this.btnExibir.Name = "btnExibir";
+            this.btnExibir.Size = new System.Drawing.Size(197, 50);
+            this.btnExibir.TabIndex = 6;
+            this.btnExibir.Text = "Exibir";
+            this.btnExibir.UseVisualStyleBackColor = true;
+            this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
             // 
             // btnExcluirMatriz
             // 
@@ -311,39 +321,17 @@
             this.btnSomarMatrizes.UseVisualStyleBackColor = true;
             this.btnSomarMatrizes.Click += new System.EventHandler(this.btnSomarMatrizes_Click);
             // 
-            // gbResultado
+            // gbOperacoes
             // 
-            this.gbResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.gbResultado.Controls.Add(this.btnExibir2);
-            this.gbResultado.Controls.Add(this.btnExibir1);
-            this.gbResultado.Controls.Add(this.btnMultiplicarMatrizes);
-            this.gbResultado.Controls.Add(this.btnSomarMatrizes);
-            this.gbResultado.Location = new System.Drawing.Point(34, 410);
-            this.gbResultado.Name = "gbResultado";
-            this.gbResultado.Size = new System.Drawing.Size(422, 152);
-            this.gbResultado.TabIndex = 8;
-            this.gbResultado.TabStop = false;
-            this.gbResultado.Text = "Resultado";
-            // 
-            // btnExibir2
-            // 
-            this.btnExibir2.Location = new System.Drawing.Point(208, 85);
-            this.btnExibir2.Name = "btnExibir2";
-            this.btnExibir2.Size = new System.Drawing.Size(197, 50);
-            this.btnExibir2.TabIndex = 7;
-            this.btnExibir2.Text = "Matriz 2";
-            this.btnExibir2.UseVisualStyleBackColor = true;
-            this.btnExibir2.Click += new System.EventHandler(this.btnExibir2_Click);
-            // 
-            // btnExibir1
-            // 
-            this.btnExibir1.Location = new System.Drawing.Point(6, 85);
-            this.btnExibir1.Name = "btnExibir1";
-            this.btnExibir1.Size = new System.Drawing.Size(197, 50);
-            this.btnExibir1.TabIndex = 6;
-            this.btnExibir1.Text = "Matriz 1";
-            this.btnExibir1.UseVisualStyleBackColor = true;
-            this.btnExibir1.Click += new System.EventHandler(this.btnExibir1_Click);
+            this.gbOperacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbOperacoes.Controls.Add(this.btnMultiplicarMatrizes);
+            this.gbOperacoes.Controls.Add(this.btnSomarMatrizes);
+            this.gbOperacoes.Location = new System.Drawing.Point(189, 459);
+            this.gbOperacoes.Name = "gbOperacoes";
+            this.gbOperacoes.Size = new System.Drawing.Size(422, 104);
+            this.gbOperacoes.TabIndex = 8;
+            this.gbOperacoes.TabStop = false;
+            this.gbOperacoes.Text = "Operações";
             // 
             // ofdAbrir
             // 
@@ -356,26 +344,26 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 575);
-            this.Controls.Add(this.gbResultado);
+            this.Controls.Add(this.gbOperacoes);
             this.Controls.Add(this.gbMatriz1);
-            this.Controls.Add(this.dgvMatrizResult);
+            this.Controls.Add(this.dgvMatriz);
             this.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmMatrizes";
             this.Text = "Matrizes Esparsas";
             this.Load += new System.EventHandler(this.FrmMatrizes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatrizResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz)).EndInit();
             this.gbMatriz1.ResumeLayout(false);
             this.gbMatriz1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLinhas)).EndInit();
-            this.gbResultado.ResumeLayout(false);
+            this.gbOperacoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvMatrizResult;
+        private System.Windows.Forms.DataGridView dgvMatriz;
         private System.Windows.Forms.Button btnLerArquivo;
         private System.Windows.Forms.GroupBox gbMatriz1;
         private System.Windows.Forms.Button btnSomarConstante;
@@ -383,7 +371,7 @@
         private System.Windows.Forms.TextBox txtK;
         private System.Windows.Forms.Button btnMultiplicarMatrizes;
         private System.Windows.Forms.Button btnSomarMatrizes;
-        private System.Windows.Forms.GroupBox gbResultado;
+        private System.Windows.Forms.GroupBox gbOperacoes;
         private System.Windows.Forms.OpenFileDialog ofdAbrir;
         private System.Windows.Forms.NumericUpDown nudColunas;
         private System.Windows.Forms.NumericUpDown nudLinhas;
@@ -394,8 +382,7 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnIncluir;
-        private System.Windows.Forms.Button btnExibir2;
-        private System.Windows.Forms.Button btnExibir1;
+        private System.Windows.Forms.Button btnExibir;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.ComboBox cbxMatrizes;
         private System.Windows.Forms.Label lblMatriz;

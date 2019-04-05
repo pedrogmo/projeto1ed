@@ -49,10 +49,10 @@ namespace apMatrizesEsparsas
         private bool ExisteCelula(Celula cabecaLinha, Celula cabecaColuna, ref Celula esquerda, ref Celula acima)
         {            
             esquerda = cabecaLinha;
-            while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna>cabecaLinha.Coluna)
+            while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna > indCabeca)
                 esquerda = esquerda.Direita;
             acima = cabecaColuna;
-            while (acima.Abaixo.Linha < cabecaLinha.Linha && acima.Abaixo.Linha>cabecaColuna.Linha)
+            while (acima.Abaixo.Linha < cabecaLinha.Linha && acima.Abaixo.Linha > indCabeca)
                 acima = acima.Abaixo;
             return esquerda.Direita.Coluna == cabecaColuna.Coluna;
         }
@@ -171,7 +171,7 @@ namespace apMatrizesEsparsas
                         novaCelula.Abaixo = abaixo;
                         break;
                     }
-                } while (abaixo.Direita.Coluna != cabecaLinhaAbaixo.Coluna);
+                } while (abaixo.Direita.Coluna != indCabeca);
             }                
             novaCelula.Direita = cabecaLinha;
             if (novaCelula.Coluna < qtdColunas)
@@ -186,7 +186,7 @@ namespace apMatrizesEsparsas
                         novaCelula.Direita = direita;
                         break;
                     }
-                } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
+                } while (direita.Abaixo.Linha != indCabeca);
             }
         }
 
@@ -200,7 +200,7 @@ namespace apMatrizesEsparsas
                 for (int c = 1; c <= coluna; c++)
                     cabecaColuna = cabecaColuna.Direita;
                 Celula esquerda = null, acima = null, cabecaLinha = cabeca.Abaixo;
-                while (cabecaLinha.Linha != cabeca.Linha)
+                while (cabecaLinha.Linha != indCabeca)
                 {
                     if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
                         esquerda.Direita.Valor += k;
@@ -218,24 +218,53 @@ namespace apMatrizesEsparsas
 
         public ListaCruzada SomaMatriz(ListaCruzada outra)
         {
-            if (outra.qtdLinhas != this.qtdLinhas)
-                throw new Exception("Quantidade diferente de linhas das matrizes");
-            if (outra.qtdColunas != this.qtdColunas)
-                throw new Exception("Quantidade diferentes de colunas das matrizes");
+            if (outra.qtdLinhas != this.qtdLinhas ||
+                outra.qtdColunas != this.qtdColunas)
+                throw new Exception("Dimensões das matrizes devem ser iguais");
             ListaCruzada ret = new ListaCruzada(qtdLinhas,qtdColunas);
-            //operação
-             
             Celula cabecaColunaA = cabeca.Direita;
             Celula cabecaColunaB = outra.cabeca.Direita;
-
             Celula atualA = cabecaColunaA.Abaixo;
-            Celula atualB = cabecaColunaB.Abaixo;
+            Celula atualB = cabecaColunaB.Abaixo;            
+            while (cabecaColunaA.Coluna != indCabeca)
+            {
+                while (atualA.Linha!= indCabeca &&
+                        atualB.Linha != indCabeca)
+                {
+                    if (atualA.Linha > atualB.Linha)
+                        atualB = atualB.Abaixo;
+                    if (atualA.Linha < atualB.Linha)
+                        atualA = atualA.Abaixo;
+                    else
+                    {
+                        ret.Incluir(new Celula(atualA.Valor + atualB.Valor, atualA.Linha, atualB.Coluna, null, null));
+                        atualA = atualA.Abaixo;
+                        atualB = atualB.Abaixo;
+                    }
+                }
+                while(atualA.Linha != indCabeca)
+                {
+                    ret.Incluir(new Celula(atualA.Valor, atualA.Linha, atualA.Coluna, null, null));
+                    atualA = atualA.Abaixo;
+                }
+                while(atualB.Linha != indCabeca)
+                {
+                    ret.Incluir(new Celula(atualB.Valor, atualB.Linha, atualB.Coluna, null, null));
+                    atualB = atualB.Abaixo;
+                }
+                cabecaColunaA = cabecaColunaA.Direita;
+                cabecaColunaB = cabecaColunaB.Direita;
+                atualA = cabecaColunaA.Abaixo;
+                atualB = cabecaColunaB.Abaixo;
+            }
+            return ret;
 
+            /*Código antigo:
             for (int c = 1; c <= qtdColunas; c++)
             {
                 for (int l = 1; l <= qtdLinhas; l++)
                 {
-                    if (atualA.Linha == cabecaColunaA.Linha || atualB.Linha == cabecaColunaB.Linha)
+                    if (atualA.Linha == cabecaColunaA.Linha)
                         break;
                     if (atualA.Linha == atualB.Linha)
                     {
@@ -252,10 +281,7 @@ namespace apMatrizesEsparsas
                 cabecaColunaB = cabecaColunaB.Direita;
                 atualA = cabecaColunaA.Abaixo;
                 atualB = cabecaColunaB.Abaixo;
-
-            }
-
-            return ret;
+            }*/
         }
 
         public ListaCruzada MultiplicacaoMatriz(ListaCruzada outra)

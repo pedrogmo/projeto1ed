@@ -26,8 +26,9 @@ namespace apMatrizesEsparsas
             MessageBox.Show("Para criar uma matriz, determine a quantidade de linhas e colunas e clique no botão Criar Matriz. " +
                             "Você também pode ler a matriz de um arquivo texto, no qual a primeira linha deve ser a quantidade " +
                             "de linhas, a segunda é a quantidade de colunas e as demais são as células, no formato '[linha];[coluna]" +
-                            ";[valor]'. Para incluir, pesquisar e excluir, determine a linha e coluna da célula no mesmo componente usado "+
-                            "na criação. Para a inclusão, digite o valor da nova célula na caixa de texto. Também é possível realizar operações "+
+                            ";[valor]'. Para incluir, pesquisar e excluir, determine a linha e coluna da célula no mesmo componente usado " +
+                            "na criação. Para a inclusão, digite o valor da nova célula na caixa de texto, ou edite diretamente pelo DataGridView." +
+                            "Também é possível realizar operações " +
                             "com as matrizes (somá-las, multiplicá-las e somar em determinada coluna um valor real K).",
                 "Instruções", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -77,6 +78,7 @@ namespace apMatrizesEsparsas
             txtK.Visible = b;
             btnLimpar.Visible = b;
             btnExcluirMatriz.Visible = b;
+            btnExibir.Visible = b;
             btnCriarMatriz.Visible = !b;
             btnLerArquivo.Visible = !b;
         }
@@ -143,10 +145,11 @@ namespace apMatrizesEsparsas
         {
             try
             {
+                Celula nova = new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null);
                 if (cbxMatrizes.SelectedIndex == 0)
-                    matriz1.Incluir(new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null));
+                    matriz1.Incluir(nova);
                 else
-                    matriz2.Incluir(new Celula(double.Parse(txtValor.Text), (int)nudLinhas.Value, (int)nudColunas.Value, null, null));
+                    matriz2.Incluir(nova);
                 txtValor.Text = "";
                 MessageBox.Show("Valor incluído", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -156,44 +159,38 @@ namespace apMatrizesEsparsas
             }            
         }
 
-        private void btnExibir1_Click(object sender, EventArgs e)
+        private void btnExibir_Click(object sender, EventArgs e)
         {
             try
             {
-                if (matriz1 != null)
-                    matriz1.Exibir(dgvMatrizResult);
+                if (cbxMatrizes.SelectedIndex == 0)
+                {
+                    if (matriz1 != null)
+                        matriz1.Exibir(dgvMatriz);
+                    else
+                        LimparDgv();
+                }
                 else
                 {
-                    dgvMatrizResult.Rows.Clear();
-                    dgvMatrizResult.RowCount = 0;
-                    dgvMatrizResult.ColumnCount = 0;
+                    if (matriz2 != null)
+                        matriz2.Exibir(dgvMatriz);
+                    else
+                        LimparDgv();
                 }
+                dgvMatriz.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dgvMatrizResult.Rows.Clear();
+                dgvMatriz.Rows.Clear();
             }
         }
 
-        private void btnExibir2_Click(object sender, EventArgs e)
+        private void LimparDgv()
         {
-            try
-            {
-                if (matriz2 != null)
-                    matriz2.Exibir(dgvMatrizResult);
-                else
-                {
-                    dgvMatrizResult.Rows.Clear();
-                    dgvMatrizResult.RowCount = 0;
-                    dgvMatrizResult.ColumnCount = 0;
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dgvMatrizResult.Rows.Clear();
-            }
+            dgvMatriz.Rows.Clear();
+            dgvMatriz.RowCount = 0;
+            dgvMatriz.ColumnCount = 0;
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -254,7 +251,7 @@ namespace apMatrizesEsparsas
             {
                 MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }        
 
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
@@ -263,7 +260,8 @@ namespace apMatrizesEsparsas
                 try
                 {
                     resultado = matriz1.SomaMatriz(matriz2);
-                    resultado.Exibir(dgvMatrizResult);
+                    resultado.Exibir(dgvMatriz);
+                    dgvMatriz.EditMode = DataGridViewEditMode.EditProgrammatically;
                 }
                 catch (Exception exc)
                 {
@@ -279,12 +277,30 @@ namespace apMatrizesEsparsas
                 try
                 {
                     resultado = matriz1.MultiplicacaoMatriz(matriz2);
-                    resultado.Exibir(dgvMatrizResult);
+                    resultado.Exibir(dgvMatriz);
+                    dgvMatriz.EditMode = DataGridViewEditMode.EditProgrammatically;
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void dgvMatriz_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                Celula nova = new Celula(double.Parse(dgvMatriz.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()), e.RowIndex+1, e.ColumnIndex+1, null, null);
+                if (cbxMatrizes.SelectedIndex == 0)
+                    matriz1.Incluir(nova);
+                else
+                    matriz2.Incluir(nova);
+                MessageBox.Show("Valor incluído", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
