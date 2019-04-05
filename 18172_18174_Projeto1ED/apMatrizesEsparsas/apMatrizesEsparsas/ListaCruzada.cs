@@ -154,30 +154,7 @@ namespace apMatrizesEsparsas
                 coluna.Abaixo = coluna;
             for (Celula linha = cabeca.Abaixo; linha.Linha != cabeca.Linha; linha = linha.Abaixo)
                 linha.Direita = linha;
-        }        
-
-        public void SomarEmColuna(double k, int coluna)
-        {
-            if (coluna <= indCabeca || coluna > qtdColunas)
-                throw new Exception("Coluna inválida");
-            Celula cabecaColuna = cabeca;
-            for (int c = 1; c <= coluna; c++)
-                cabecaColuna = cabecaColuna.Direita;
-            Celula esquerda = null, acima = null, cabecaLinha=cabeca.Abaixo;
-            while(cabecaLinha.Linha != cabeca.Linha)
-            {
-                if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                    esquerda.Direita.Valor += k;
-                else
-                {
-                    Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
-                    esquerda.Direita = nova;
-                    acima.Abaixo = nova;
-                    InserirCelula(nova, cabecaLinha, cabecaColuna);
-                }
-                cabecaLinha = cabecaLinha.Abaixo;
-            }
-        }
+        }                
 
         private void InserirCelula(Celula novaCelula, Celula cabecaLinha, Celula cabecaColuna)
         {
@@ -210,6 +187,32 @@ namespace apMatrizesEsparsas
                         break;
                     }
                 } while (direita.Abaixo.Linha != cabecaColunaDireita.Linha);
+            }
+        }
+
+        public void SomarEmColuna(double k, int coluna)
+        {
+            if (coluna <= indCabeca || coluna > qtdColunas)
+                throw new Exception("Coluna inválida");
+            if (k != 0) //se o valor for 0, nada é feito
+            {
+                Celula cabecaColuna = cabeca;
+                for (int c = 1; c <= coluna; c++)
+                    cabecaColuna = cabecaColuna.Direita;
+                Celula esquerda = null, acima = null, cabecaLinha = cabeca.Abaixo;
+                while (cabecaLinha.Linha != cabeca.Linha)
+                {
+                    if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
+                        esquerda.Direita.Valor += k;
+                    else
+                    {
+                        Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
+                        esquerda.Direita = nova;
+                        acima.Abaixo = nova;
+                        InserirCelula(nova, cabecaLinha, cabecaColuna);
+                    }
+                    cabecaLinha = cabecaLinha.Abaixo;
+                }
             }
         }
 
