@@ -265,7 +265,7 @@
             // lblK
             // 
             this.lblK.AutoSize = true;
-            this.lblK.Location = new System.Drawing.Point(30, 343);
+            this.lblK.Location = new System.Drawing.Point(30, 322);
             this.lblK.Name = "lblK";
             this.lblK.Size = new System.Drawing.Size(23, 23);
             this.lblK.TabIndex = 7;
@@ -274,7 +274,7 @@
             // 
             // txtK
             // 
-            this.txtK.Location = new System.Drawing.Point(56, 340);
+            this.txtK.Location = new System.Drawing.Point(56, 319);
             this.txtK.Name = "txtK";
             this.txtK.Size = new System.Drawing.Size(140, 30);
             this.txtK.TabIndex = 6;
@@ -282,9 +282,9 @@
             // 
             // btnSomarConstante
             // 
-            this.btnSomarConstante.Location = new System.Drawing.Point(34, 393);
+            this.btnSomarConstante.Location = new System.Drawing.Point(216, 316);
             this.btnSomarConstante.Name = "btnSomarConstante";
-            this.btnSomarConstante.Size = new System.Drawing.Size(154, 35);
+            this.btnSomarConstante.Size = new System.Drawing.Size(118, 35);
             this.btnSomarConstante.TabIndex = 4;
             this.btnSomarConstante.Text = "Somar K";
             this.btnSomarConstante.UseVisualStyleBackColor = true;

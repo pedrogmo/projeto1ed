@@ -198,17 +198,10 @@ namespace apMatrizesEsparsas
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (cbxMatrizes.SelectedIndex == 0)
-                    txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
-                else
-                    txtValor.Text = matriz2.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (cbxMatrizes.SelectedIndex == 0)
+                txtValor.Text = matriz1.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
+            else
+                txtValor.Text = matriz2.ValorDe((int)nudLinhas.Value, (int)nudColunas.Value).ToString();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

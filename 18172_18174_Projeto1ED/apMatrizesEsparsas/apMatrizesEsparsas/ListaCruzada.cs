@@ -126,8 +126,8 @@ namespace apMatrizesEsparsas
                 cabecaLinha = cabecaLinha.Abaixo;
             for (int c = 1; c <= coluna; c++)
                 cabecaColuna = cabecaColuna.Direita;
-            if (!ExisteCelula(cabecaLinha,cabecaColuna,ref esquerda,ref acima))
-                throw new Exception("Celula inexistente");
+            if (!ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
+                return 0;
             return esquerda.Direita.Valor;
         }
 
