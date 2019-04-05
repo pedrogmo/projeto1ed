@@ -18,3 +18,13 @@ C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEspar
 C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.exe
 C:\Users\User\Documents\GitHub\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.pdb
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe.config
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.exe
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\bin\Debug\apMatrizesEsparsas.pdb
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csprojResolveAssemblyReference.cache
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.FrmMatrizes.resources
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.Properties.Resources.resources
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.GenerateResource.Cache
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.csproj.CoreCompileInputs.cache
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.exe
+C:\Users\victo\OneDrive\Documentos\GitHub\explorador-de-labirinto\projeto1ed\18172_18174_Projeto1ED\apMatrizesEsparsas\apMatrizesEsparsas\obj\Debug\apMatrizesEsparsas.pdb

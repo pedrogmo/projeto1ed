@@ -224,6 +224,37 @@ namespace apMatrizesEsparsas
                 throw new Exception("Quantidade diferentes de colunas das matrizes");
             ListaCruzada ret = new ListaCruzada(qtdLinhas,qtdColunas);
             //operação
+             
+            Celula cabecaColunaA = cabeca.Direita;
+            Celula cabecaColunaB = outra.cabeca.Direita;
+
+            Celula atualA = cabecaColunaA.Abaixo;
+            Celula atualB = cabecaColunaB.Abaixo;
+
+            for (int c = 1; c <= qtdColunas; c++)
+            {
+                for (int l = 1; l <= qtdLinhas; l++)
+                {
+                    if (atualA.Linha == cabecaColunaA.Linha || atualB.Linha == cabecaColunaB.Linha)
+                        break;
+                    if (atualA.Linha == atualB.Linha)
+                    {
+                        ret.Incluir(new Celula(atualA.Valor + atualB.Valor, atualA.Linha, atualB.Coluna, null, null));
+                        atualA = atualA.Abaixo;
+                        atualB = atualB.Abaixo;
+                    }
+                    if (atualA.Linha > atualB.Linha)
+                        atualB = atualB.Abaixo;
+                    if (atualA.Linha < atualB.Linha)
+                        atualA = atualA.Abaixo;                                        
+                }
+                cabecaColunaA = cabecaColunaA.Direita;
+                cabecaColunaB = cabecaColunaB.Direita;
+                atualA = cabecaColunaA.Abaixo;
+                atualB = cabecaColunaB.Abaixo;
+
+            }
+
             return ret;
         }
 
