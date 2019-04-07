@@ -52,6 +52,7 @@
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
             this.gbOperacoes = new System.Windows.Forms.GroupBox();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
+            this.cbExibir = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz)).BeginInit();
             this.gbMatriz1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
@@ -77,7 +78,7 @@
             // 
             // btnLerArquivo
             // 
-            this.btnLerArquivo.Location = new System.Drawing.Point(188, 142);
+            this.btnLerArquivo.Location = new System.Drawing.Point(189, 177);
             this.btnLerArquivo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnLerArquivo.Name = "btnLerArquivo";
             this.btnLerArquivo.Size = new System.Drawing.Size(155, 32);
@@ -90,6 +91,7 @@
             // 
             this.gbMatriz1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbMatriz1.Controls.Add(this.cbExibir);
             this.gbMatriz1.Controls.Add(this.btnExibir);
             this.gbMatriz1.Controls.Add(this.btnExcluirMatriz);
             this.gbMatriz1.Controls.Add(this.lblMatriz);
@@ -117,7 +119,7 @@
             // 
             // btnExibir
             // 
-            this.btnExibir.Location = new System.Drawing.Point(94, 381);
+            this.btnExibir.Location = new System.Drawing.Point(95, 416);
             this.btnExibir.Name = "btnExibir";
             this.btnExibir.Size = new System.Drawing.Size(197, 50);
             this.btnExibir.TabIndex = 6;
@@ -127,7 +129,7 @@
             // 
             // btnExcluirMatriz
             // 
-            this.btnExcluirMatriz.Location = new System.Drawing.Point(24, 142);
+            this.btnExcluirMatriz.Location = new System.Drawing.Point(25, 177);
             this.btnExcluirMatriz.Name = "btnExcluirMatriz";
             this.btnExcluirMatriz.Size = new System.Drawing.Size(155, 33);
             this.btnExcluirMatriz.TabIndex = 27;
@@ -139,7 +141,7 @@
             // lblMatriz
             // 
             this.lblMatriz.AutoSize = true;
-            this.lblMatriz.Location = new System.Drawing.Point(218, 48);
+            this.lblMatriz.Location = new System.Drawing.Point(219, 83);
             this.lblMatriz.Name = "lblMatriz";
             this.lblMatriz.Size = new System.Drawing.Size(119, 23);
             this.lblMatriz.TabIndex = 26;
@@ -152,7 +154,7 @@
             this.cbxMatrizes.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cbxMatrizes.Location = new System.Drawing.Point(216, 74);
+            this.cbxMatrizes.Location = new System.Drawing.Point(217, 109);
             this.cbxMatrizes.Name = "cbxMatrizes";
             this.cbxMatrizes.Size = new System.Drawing.Size(121, 31);
             this.cbxMatrizes.TabIndex = 25;
@@ -160,7 +162,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(188, 142);
+            this.btnLimpar.Location = new System.Drawing.Point(189, 177);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(155, 33);
             this.btnLimpar.TabIndex = 24;
@@ -171,7 +173,7 @@
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(21, 264);
+            this.txtValor.Location = new System.Drawing.Point(22, 299);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(316, 30);
             this.txtValor.TabIndex = 23;
@@ -179,7 +181,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(216, 217);
+            this.btnPesquisar.Location = new System.Drawing.Point(217, 252);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(118, 34);
             this.btnPesquisar.TabIndex = 17;
@@ -190,7 +192,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(121, 217);
+            this.btnExcluir.Location = new System.Drawing.Point(122, 252);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 35);
             this.btnExcluir.TabIndex = 16;
@@ -201,7 +203,7 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Location = new System.Drawing.Point(21, 217);
+            this.btnIncluir.Location = new System.Drawing.Point(22, 252);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(94, 35);
             this.btnIncluir.TabIndex = 15;
@@ -212,7 +214,7 @@
             // 
             // nudColunas
             // 
-            this.nudColunas.Location = new System.Drawing.Point(124, 91);
+            this.nudColunas.Location = new System.Drawing.Point(125, 126);
             this.nudColunas.Minimum = new decimal(new int[] {
             1,
             0,
@@ -229,7 +231,7 @@
             // 
             // nudLinhas
             // 
-            this.nudLinhas.Location = new System.Drawing.Point(124, 48);
+            this.nudLinhas.Location = new System.Drawing.Point(125, 83);
             this.nudLinhas.Minimum = new decimal(new int[] {
             1,
             0,
@@ -246,7 +248,7 @@
             // 
             // btnCriarMatriz
             // 
-            this.btnCriarMatriz.Location = new System.Drawing.Point(34, 142);
+            this.btnCriarMatriz.Location = new System.Drawing.Point(35, 177);
             this.btnCriarMatriz.Name = "btnCriarMatriz";
             this.btnCriarMatriz.Size = new System.Drawing.Size(136, 33);
             this.btnCriarMatriz.TabIndex = 12;
@@ -257,7 +259,7 @@
             // lblColunas
             // 
             this.lblColunas.AutoSize = true;
-            this.lblColunas.Location = new System.Drawing.Point(17, 93);
+            this.lblColunas.Location = new System.Drawing.Point(18, 128);
             this.lblColunas.Name = "lblColunas";
             this.lblColunas.Size = new System.Drawing.Size(86, 23);
             this.lblColunas.TabIndex = 11;
@@ -266,7 +268,7 @@
             // lblLinhas
             // 
             this.lblLinhas.AutoSize = true;
-            this.lblLinhas.Location = new System.Drawing.Point(17, 50);
+            this.lblLinhas.Location = new System.Drawing.Point(18, 85);
             this.lblLinhas.Name = "lblLinhas";
             this.lblLinhas.Size = new System.Drawing.Size(74, 23);
             this.lblLinhas.TabIndex = 9;
@@ -275,7 +277,7 @@
             // lblK
             // 
             this.lblK.AutoSize = true;
-            this.lblK.Location = new System.Drawing.Point(30, 322);
+            this.lblK.Location = new System.Drawing.Point(31, 357);
             this.lblK.Name = "lblK";
             this.lblK.Size = new System.Drawing.Size(23, 23);
             this.lblK.TabIndex = 7;
@@ -284,7 +286,7 @@
             // 
             // txtK
             // 
-            this.txtK.Location = new System.Drawing.Point(56, 319);
+            this.txtK.Location = new System.Drawing.Point(57, 354);
             this.txtK.Name = "txtK";
             this.txtK.Size = new System.Drawing.Size(140, 30);
             this.txtK.TabIndex = 6;
@@ -292,7 +294,7 @@
             // 
             // btnSomarConstante
             // 
-            this.btnSomarConstante.Location = new System.Drawing.Point(216, 316);
+            this.btnSomarConstante.Location = new System.Drawing.Point(217, 351);
             this.btnSomarConstante.Name = "btnSomarConstante";
             this.btnSomarConstante.Size = new System.Drawing.Size(118, 35);
             this.btnSomarConstante.TabIndex = 4;
@@ -338,6 +340,16 @@
             this.ofdAbrir.DefaultExt = "txt";
             this.ofdAbrir.FileName = "openFileDialog1";
             this.ofdAbrir.InitialDirectory = "c:\\temp";
+            // 
+            // cbExibir
+            // 
+            this.cbExibir.AutoSize = true;
+            this.cbExibir.Location = new System.Drawing.Point(25, 44);
+            this.cbExibir.Name = "cbExibir";
+            this.cbExibir.Size = new System.Drawing.Size(266, 27);
+            this.cbExibir.TabIndex = 28;
+            this.cbExibir.Text = "Exibí-las automaticamente";
+            this.cbExibir.UseVisualStyleBackColor = true;
             // 
             // FrmMatrizes
             // 
@@ -387,6 +399,7 @@
         private System.Windows.Forms.ComboBox cbxMatrizes;
         private System.Windows.Forms.Label lblMatriz;
         private System.Windows.Forms.Button btnExcluirMatriz;
+        private System.Windows.Forms.CheckBox cbExibir;
     }
 }
 

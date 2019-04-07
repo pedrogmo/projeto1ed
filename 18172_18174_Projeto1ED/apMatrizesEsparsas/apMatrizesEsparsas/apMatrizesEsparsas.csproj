@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Celula.cs" />
-    <Compile Include="CelulaInexistenteException.cs" />
     <Compile Include="FrmMatrizes.cs">
       <SubType>Form</SubType>
     </Compile>
