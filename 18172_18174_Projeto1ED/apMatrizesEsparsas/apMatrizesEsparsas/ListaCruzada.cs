@@ -221,6 +221,20 @@ namespace apMatrizesEsparsas
             }
             return ret;
         }
+
+        public override string ToString()
+        {
+            return $"Lista Cruzada com {qtdLinhas} linhas e {qtdColunas} colunas";
+        }
+
+        public string ParaArquivo()
+        {
+            string ret = qtdLinhas + "/n" + qtdColunas;
+            for (Celula cabecaColuna = cabeca.Direita; cabecaColuna.Coluna != indCabeca; cabecaColuna = cabecaColuna.Direita)
+                for (Celula atual = cabecaColuna.Abaixo; atual.Linha != indCabeca; atual = atual.Abaixo)
+                    ret += "/n" + atual.ToString();
+            return ret;
+        }
     }
 }
 

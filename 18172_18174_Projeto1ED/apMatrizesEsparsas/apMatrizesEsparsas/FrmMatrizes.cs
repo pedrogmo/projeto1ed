@@ -26,8 +26,8 @@ namespace apMatrizesEsparsas
             cbxMatrizes.SelectedIndex = 0;
             MessageBox.Show("Para criar uma matriz, determine a quantidade de linhas e colunas e clique no botão Criar Matriz. " +
                             "Você também pode ler a matriz de um arquivo texto, no qual a primeira linha deve ser a quantidade " +
-                            "de linhas, a segunda é a quantidade de colunas e as demais são as células, no formato '[linha];[coluna]" +
-                            ";[valor]'. Para incluir, pesquisar e excluir, determine a linha e coluna da célula no mesmo componente usado " +
+                            "de linhas, a segunda é a quantidade de colunas e as demais são as células, no formato '[valor];[linha]" +
+                            ";[coluna]'. Para incluir, pesquisar e excluir, determine a linha e coluna da célula no mesmo componente usado " +
                             "na criação. Para a inclusão, digite o valor da nova célula na caixa de texto, ou edite diretamente pelo DataGridView." +
                             "Também é possível realizar operações " +
                             "com as matrizes (somá-las, multiplicá-las e somar em determinada coluna um valor real K).",
@@ -139,10 +139,11 @@ namespace apMatrizesEsparsas
                     string linha = arq.ReadLine(); //string linha armazena toda a linha lida
                     string[] campos = linha.Split(';'); //separam-se os campos por meio do método Split no caractere de ponto e vírgula
 
-                    //armazenam-se os campos conforme o formato [linha,coluna,valor]
-                    int valorLinha = int.Parse(campos[0]);
-                    int valorColuna = int.Parse(campos[1]);
-                    double valor = double.Parse(campos[2]);
+                    //armazenam-se os campos conforme o formato '[valor];[linha];[coluna]'
+                    double valor = double.Parse(campos[0]);
+                    int valorLinha = int.Parse(campos[1]);
+                    int valorColuna = int.Parse(campos[2]);
+                    
                     m.Incluir(new Celula(valor, valorLinha, valorColuna, null, null));
                     //por fim, é incluída nova célula com os valores lidos
                 }                

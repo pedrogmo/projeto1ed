@@ -8,11 +8,12 @@ namespace apMatrizesEsparsas
 {
     class Celula
     {
-        double valor;
-        int linha, coluna;
-        Celula direita, abaixo;
+        double valor; //valor real armazenado internamente
+        int linha, coluna; //coordenadas de linha e coluna dentro da matriz
+        Celula direita, abaixo; //ponteiros de células que estão à direita e abaixo da atual
 
         public Celula(double v, int l, int c, Celula d, Celula a)
+            //construtor chama propriedades setters da classe com os valores passados por parâmetro
         {
             Valor = v;
             linha = l;
@@ -22,15 +23,18 @@ namespace apMatrizesEsparsas
         }
 
         public double Valor
+            //propriedade de valor
         {
             get => valor;
             set => valor = value;       
         }
 
+        //propriedades de Linha e Coluna, sem setters
         public int Linha { get => linha; }
 
         public int Coluna { get => coluna; }
 
+        //propriedades Direita e Esquerda com getters e setters
         public Celula Direita
         {
             get => direita;
@@ -43,11 +47,10 @@ namespace apMatrizesEsparsas
             set => abaixo = value;
         }
 
-        public int CompareTo(Celula cel)
+        //método ToString() da classe, que retorna atributos no formato '[valor];[linha];[coluna]'
+        public override string ToString()
         {
-            if (linha != cel.linha)
-                return linha - cel.linha;
-            return coluna - cel.coluna;
+            return $"{valor};{linha};{coluna}";
         }
     }
 }
