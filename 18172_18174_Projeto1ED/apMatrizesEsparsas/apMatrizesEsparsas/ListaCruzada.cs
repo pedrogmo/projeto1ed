@@ -77,10 +77,14 @@ namespace apMatrizesEsparsas
                 cabecaColuna = cabecaColuna.Direita;            
             novaCelula.Abaixo = cabecaColuna;
             if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                throw new Exception("Célula já existente");
-            esquerda.Direita = novaCelula;
-            acima.Abaixo = novaCelula;
-            InserirCelula(novaCelula, cabecaLinha, cabecaColuna);
+                esquerda.Direita.Valor = novaCelula.Valor;
+            else
+            {
+                novaCelula.Abaixo = acima.Abaixo;
+                novaCelula.Direita = esquerda.Direita;
+                esquerda.Direita = novaCelula;
+                acima.Abaixo = novaCelula;
+            }            
         }        
 
         public void Exibir(DataGridView dgv)
@@ -154,41 +158,7 @@ namespace apMatrizesEsparsas
                 coluna.Abaixo = coluna;
             for (Celula linha = cabeca.Abaixo; linha.Linha != cabeca.Linha; linha = linha.Abaixo)
                 linha.Direita = linha;
-        }                
-
-        private void InserirCelula(Celula novaCelula, Celula cabecaLinha, Celula cabecaColuna)
-        {
-            novaCelula.Abaixo = cabecaColuna;
-            if (novaCelula.Linha < qtdLinhas)
-            {
-                Celula cabecaLinhaAbaixo = cabecaLinha.Abaixo;
-                Celula abaixo = cabecaLinhaAbaixo;
-                do
-                {
-                    abaixo = abaixo.Direita;
-                    if (abaixo.Coluna == novaCelula.Coluna)
-                    {
-                        novaCelula.Abaixo = abaixo;
-                        break;
-                    }
-                } while (abaixo.Direita.Coluna != indCabeca);
-            }                
-            novaCelula.Direita = cabecaLinha;
-            if (novaCelula.Coluna < qtdColunas)
-            {
-                Celula cabecaColunaDireita = cabecaColuna.Direita;
-                Celula direita = cabecaColunaDireita;
-                do
-                {
-                    direita = direita.Abaixo;
-                    if (direita.Linha == novaCelula.Linha)
-                    {
-                        novaCelula.Direita = direita;
-                        break;
-                    }
-                } while (direita.Abaixo.Linha != indCabeca);
-            }
-        }
+        }                        
 
         public void SomarEmColuna(double k, int coluna)
         {
@@ -207,9 +177,10 @@ namespace apMatrizesEsparsas
                     else
                     {
                         Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
+                        nova.Abaixo = acima.Abaixo;
+                        nova.Direita = esquerda.Direita;
                         esquerda.Direita = nova;
-                        acima.Abaixo = nova;
-                        InserirCelula(nova, cabecaLinha, cabecaColuna);
+                        acima.Abaixo = nova;                        
                     }
                     cabecaLinha = cabecaLinha.Abaixo;
                 }

@@ -115,7 +115,13 @@ namespace apMatrizesEsparsas
                 if (cbxMatrizes.SelectedIndex == 0)
                     LerMatriz(ref matriz1);
                 else
-                    LerMatriz(ref matriz2);                
+                    LerMatriz(ref matriz2);
+                ExibirComponentes(true); //exibem-se os componentes
+                MessageBox.Show("Matriz lida", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ao final de muitos métodos desse formulário, exibe-se uma caixa de texto indicando
+                //que a operação foi feita
+                if (cbExibir.Checked)
+                    btnExibir.PerformClick();
             }
             catch(Exception exc)
             {
@@ -145,14 +151,8 @@ namespace apMatrizesEsparsas
                     double valor = double.Parse(campos[2]);
                     m.Incluir(new Celula(valor, valorLinha, valorColuna, null, null));
                     //por fim, é incluída nova célula com os valores lidos
-                }                
+                }
                 arq.Close(); //fecha-se o arquivo
-                ExibirComponentes(true); //exibem-se os componentes                
-                if (cbExibir.Checked)
-                    btnExibir.PerformClick();
-                MessageBox.Show("Matriz lida", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //ao final de muitos métodos desse formulário, exibe-se uma caixa de texto indicando
-                //que a operação foi feita
             }
         }        
 
