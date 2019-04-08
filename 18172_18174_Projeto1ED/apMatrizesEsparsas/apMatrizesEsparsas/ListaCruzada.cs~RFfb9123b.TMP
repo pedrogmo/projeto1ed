@@ -237,7 +237,20 @@ namespace apMatrizesEsparsas
             if (this.qtdColunas != outra.qtdLinhas)
                 throw new Exception("Quantidade de colunas diferente da quantidade de linhas da segunda matriz");
             ListaCruzada ret = new ListaCruzada(qtdLinhas, outra.qtdColunas);
-            
+            Celula esquerdaA = null, esquerdaB = null, acimaA = null, acimaB = null, esquerdaRet = null, acimaRet = null;
+            for (Celula cabecaLinha = ret.cabeca.Abaixo, cabecaLinhaA = cabeca.Abaixo, cabecaColunaB = outra.cabeca.Direita;
+                cabecaLinha.Linha != indCabeca;
+                cabecaLinha = cabecaLinha.Abaixo, cabecaLinhaA = cabecaLinhaA.Abaixo, cabecaColunaB = cabecaColunaB.Direita)
+            {
+                for (Celula cabecaColuna = ret.cabeca.Direita, cabecaColunaA = cabeca.Direita, cabecaLinhaB = outra.cabeca.Abaixo;
+                cabecaColuna.Coluna != indCabeca;
+                cabecaColuna = cabecaColuna.Direita, cabecaColunaA = cabecaColunaA.Direita, cabecaLinhaB = cabecaLinhaB.Abaixo)
+                {
+                    bool existeEmA = this.ExisteCelula(cabecaLinhaA, cabecaColunaA, ref esquerdaA, ref acimaA);
+                    bool existeEmB = outra.ExisteCelula(cabecaLinhaB, cabecaColunaB, ref esquerdaB, ref acimaB);
+                    
+                }
+            }
             return ret;
         }
     }
