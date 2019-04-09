@@ -9,20 +9,32 @@ namespace apMatrizesEsparsas
 {
     class ListaCruzada
     {
+        //Atributos que indicam a cabeça Lista, número de linhas e colunas e uma constante
+        //para o índice da cabeça.
         Celula cabeca;
         int qtdLinhas, qtdColunas;
         const int indCabeca = 0;
+
+
+        //Propriedades para obtenção dos números de linhas e colunas: 
 
         public int QtdLinhas { get => qtdLinhas; }
 
         public int QtdColunas { get => qtdColunas; }
 
+
+
+        // Construtor da classe:
         public ListaCruzada(int qtdL, int qtdC)
         {
+            //Verificações das quantidades de linhas e colunas.
+            //Se forem menor que zero, haverá uma exceção de quantidade inválida.
             if (qtdL <= 0)
                 throw new Exception("Quantidade de Linhas inválida");
             if (qtdC <= 0)
                 throw new Exception("Quantidade de Colunas inválida");
+
+            //Caso contrário, uma nova lista será criada a partir da instanciação de células.
             qtdColunas = qtdC;
             qtdLinhas = qtdL;
             cabeca = new Celula(0, indCabeca, indCabeca, null, null);
@@ -46,8 +58,10 @@ namespace apMatrizesEsparsas
             atual.Abaixo = cabeca;
         }
 
+        //Método Boolean para verificar existência de uma célula em um dado ponto da lista (no caso, da "matriz").
         private bool ExisteCelula(Celula cabecaLinha, Celula cabecaColuna, ref Celula esquerda, ref Celula acima)
-        {            
+        {
+            //Trata-se de percorrer a "matriz" em busca da célula descrita nos parâmetros.
             esquerda = cabecaLinha;
             while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna > indCabeca)
                 esquerda = esquerda.Direita;
@@ -57,8 +71,11 @@ namespace apMatrizesEsparsas
             return esquerda.Direita.Coluna == cabecaColuna.Coluna;
         }
 
+        //Método de inclusão de uma nova célula.
         public void Incluir(Celula novaCelula)
         {
+            //Verificações para assegurar a inclusão de uma célula válida em um local correto.
+            //Não se pode adicionar uma célula nula ou com valor 0, por exemplo.
             if (novaCelula == null)
                 throw new Exception("Célula nula");
             if (novaCelula.Valor == 0)
@@ -67,6 +84,8 @@ namespace apMatrizesEsparsas
                 throw new Exception("Linha da célula inválida");
             if (novaCelula.Coluna <= indCabeca || novaCelula.Coluna > qtdColunas)
                 throw new Exception("Coluna da célula inválida");            
+
+            //Percorre-se a matriz para a inserção no local passado pelos parâmetros.
             Celula esquerda = null, acima = null;
             Celula cabecaLinha = cabeca;
             for (int l = 1; l <= novaCelula.Linha; l++)
@@ -87,6 +106,7 @@ namespace apMatrizesEsparsas
             }            
         }        
 
+        //Método para exibição da "matriz" em um DataGridView passado por parâmetro.
         public void Exibir(DataGridView dgv)
         {
             if (dgv == null)
