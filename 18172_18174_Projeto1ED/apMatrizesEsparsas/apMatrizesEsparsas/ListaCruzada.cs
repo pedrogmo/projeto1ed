@@ -38,6 +38,9 @@ namespace apMatrizesEsparsas
             qtdColunas = qtdC;
             qtdLinhas = qtdL;
             cabeca = new Celula(0, indCabeca, indCabeca, null, null);
+
+            //Este percorrimento conectas as cabeças das linhas e das colunas.
+
             Celula atual = cabeca;
             for(int c=1; c<=qtdColunas; c++)
             {
@@ -115,17 +118,19 @@ namespace apMatrizesEsparsas
             dgv.RowCount = qtdLinhas;
             dgv.ColumnCount = qtdColunas;
             Celula cabecaColuna = cabeca.Direita;
-            //preenche matriz com 0       
+            //preenche matriz com número 0.      
             for (int l = 0; l < qtdLinhas; l++)
             {
-                dgv.Rows[l].HeaderCell.Value = (l+1) + "";
+                dgv.Rows[l].HeaderCell.Value = (l+1) + ""; //Põe o valor do cabeçalho de linhas.
                 for (int c = 0; c < qtdColunas; c++)
                 {
                     if (l==0)
-                        dgv.Columns[c].HeaderText = (c + 1) + "";
+                        dgv.Columns[c].HeaderText = (c + 1) + ""; //Põe o valor do cabeçalho de colunas.
                     dgv.Rows[l].Cells[c].Value = "0";
+                    //"Seta" o valor como zero.
                 }
             }
+            //Aumento automático do cabeçalho de linhas DataGridView.
             dgv.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders);
             while (cabecaColuna.Coluna!=cabeca.Coluna)
             {
@@ -139,8 +144,12 @@ namespace apMatrizesEsparsas
             }
         }
 
+        //Método que o retorna o valor de uma posição da "matriz" em uma linha e em uma coluna dos respectivos parâmetros.
         public double ValorDe(int linha, int coluna)
         {
+            //Verificações para validar o uso dos parâmetros.
+            //Não podem ter o valor da cabeça e nem terem ponteiros de esquerda e acima nulos, por exemplo.
+
             if (linha <= indCabeca || linha > qtdLinhas)
                 throw new Exception("Linha inválida");
             if (coluna <= indCabeca || coluna > qtdColunas)
@@ -155,8 +164,11 @@ namespace apMatrizesEsparsas
             return esquerda.Direita.Valor;
         }
 
+
+        //Método de exclusão de uma célula em determinado ponto passado pelos parâmetros de linha e coluna.
         public void Excluir(int linha, int coluna)
         {
+            //A verificação é a mesma do método ValorDe(). A finalidade permanece a única alterada.
             if (linha <= indCabeca || linha > qtdLinhas)
                 throw new Exception("Linha inválida");
             if (coluna <= indCabeca || coluna > qtdColunas)
@@ -172,6 +184,7 @@ namespace apMatrizesEsparsas
             esquerda.Direita = esquerda.Direita.Direita;
         }
 
+        //Método que limpa a matriz por meio das cabeças apontando para si mesmas (conceito da lista circular).
         public void Limpar()
         {
             for (Celula coluna = cabeca.Direita; coluna.Coluna != cabeca.Coluna; coluna = coluna.Direita)
@@ -180,11 +193,14 @@ namespace apMatrizesEsparsas
                 linha.Direita = linha;
         }                        
 
+
+        //Método que soma uma constante K digitada pelo usuário à matriz que ele escolher.
         public void SomarEmColuna(double k, int coluna)
         {
+            //Verificação para validação da coluna passada.
             if (coluna <= indCabeca || coluna > qtdColunas)
                 throw new Exception("Coluna inválida");
-            if (k != 0) //se o valor for 0, nada é feito
+            if (k != 0) //Se o valor for 0, nada é feito. A célula será dada como vazia.
             {
                 Celula cabecaColuna = cabeca;
                 for (int c = 1; c <= coluna; c++)
@@ -192,9 +208,12 @@ namespace apMatrizesEsparsas
                 Celula esquerda = null, acima = null, cabecaLinha = cabeca.Abaixo;
                 while (cabecaLinha.Linha != indCabeca)
                 {
+                    //Se a célula existir, haverá uma soma embutida. entre o valor dela e K.
+                    //Lembrando que estamos a percorrer a "matriz".
                     if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
                         esquerda.Direita.Valor += k;
                     else
+                    //Caso contrário, instanciaremos uma nova Célula, configuraremos seus ponteiros e adicionaremos K ao seu valor.
                     {
                         Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
                         nova.Abaixo = acima.Abaixo;
@@ -203,31 +222,46 @@ namespace apMatrizesEsparsas
                         acima.Abaixo = nova;                        
                     }
                     cabecaLinha = cabecaLinha.Abaixo;
+                    //Percorrendo os dados da linha.
                 }
             }
         }
 
+        //Método que soma duas matrizes criadas pelo usuário e as devolve em forma de uma "matriz" resultante.
         public ListaCruzada SomaMatriz(ListaCruzada outra)
         {
+            //Verificação para tamanho das "matrizes". Ele precisa ser igual. Caso contrário, não haverá possibilidade de soma.
             if (outra.qtdLinhas != this.qtdLinhas ||
                 outra.qtdColunas != this.qtdColunas)
                 throw new Exception("Dimensões das matrizes devem ser iguais");
+
+            //Cria-se uma instância de ListaCruzada com valor de linhas e colunas semelhante ao das "matrizes" iniciais.
             ListaCruzada ret = new ListaCruzada(qtdLinhas,qtdColunas);
+
+            //Percorrendo linhas e colunas.
             for (int c = 1; c <= qtdColunas; c++)
                 for (int l = 1; l <= qtdLinhas; l++)
                 {
                     double valor = ValorDe(l, c) + outra.ValorDe(l, c);
                     if (valor != 0)
                         ret.Incluir(new Celula(valor, l, c, null, null));
+                    //Aviso: se for zero, não vai incluir.
                 }
             return ret;           
         }
 
+
+        //Método que multiplica duas matrizes criadas pelo usuário. É uma articulação do método anterior.
         public ListaCruzada MultiplicacaoMatriz(ListaCruzada outra)
         {
+            //Verificação para o tamanho. O número de colunas de uma deve ser o número de linhas da outra.
             if (this.qtdColunas != outra.qtdLinhas)
                 throw new Exception("Quantidade de colunas diferente da quantidade de linhas da segunda matriz");
+
+            //Instancia-se uma ListaCruzada ret com a quantidade de linhas de uma e a quantidade de colunas da outra.
             ListaCruzada ret = new ListaCruzada(qtdLinhas, outra.qtdColunas);
+
+            //Percorrendo linhas e colunas.
             for (int l = 1; l<= qtdLinhas; l++)
             {                
                 for(int c2 = 1; c2<=outra.qtdColunas; c2++)
@@ -237,27 +271,35 @@ namespace apMatrizesEsparsas
                         valor += this.ValorDe(l,l2) * outra.ValorDe(l2,c2);                    
                     if (valor != 0)
                         ret.Incluir(new Celula(valor,l,c2,null,null));
+
+                    //Mesmas condições e comandos do método anterior, mas com acréscimo de cálculos de multiplicação.
                 }                
             }
             return ret;
         }
 
+
+        //Método sobreescrito para conversão em classe String.
         public override string ToString()
         {
             return $"Lista Cruzada com {qtdLinhas} linhas e {qtdColunas} colunas";
         }
 
+        //Método para conversão em tipo próprio para leitura (arquivo .txt).
         public string ParaArquivo()
         {
-            string ret = qtdLinhas + "/n" + qtdColunas;
+            string ret = qtdLinhas + "\n" + qtdColunas;
             for (Celula cabecaColuna = cabeca.Direita; cabecaColuna.Coluna != indCabeca; cabecaColuna = cabecaColuna.Direita)
                 for (Celula atual = cabecaColuna.Abaixo; atual.Linha != indCabeca; atual = atual.Abaixo)
-                    ret += "/n" + atual.ToString();
+                    ret += "\n" + atual.ToString();
             return ret;
         }
     }
 }
 
+
+
+//Obs: nosso código antigo do método que soma matrizes:
 
 /*Código antigo:
  Celula esquerdaA = null, esquerdaB = null, acimaA = null, acimaB = null, esquerdaRet = null, acimaRet = null;
