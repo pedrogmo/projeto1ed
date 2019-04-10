@@ -330,9 +330,9 @@ namespace apMatrizesEsparsas
                     MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
+        }        
 
-        private void btnMultiplicarMatrizes_Click(object sender, EventArgs e)
+        private void btnMultiplicar1_Click(object sender, EventArgs e)
         {
             if (matriz1 != null && matriz2 != null)
             {
@@ -340,6 +340,23 @@ namespace apMatrizesEsparsas
                 {
                     //resultado agora recebe valor da multiplicação entre as duas matrizes
                     resultado = matriz1.MultiplicacaoMatriz(matriz2);
+                    resultado.Exibir(dgvResult);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnMultiplicar2_Click(object sender, EventArgs e)
+        {
+            if (matriz1 != null && matriz2 != null)
+            {
+                try
+                {
+                    //resultado agora recebe valor da multiplicação entre as duas matrizes
+                    resultado = matriz2.MultiplicacaoMatriz(matriz1);
                     resultado.Exibir(dgvResult);
                 }
                 catch (Exception exc)

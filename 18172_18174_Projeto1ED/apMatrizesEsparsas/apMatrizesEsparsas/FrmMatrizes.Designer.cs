@@ -49,13 +49,14 @@
             this.lblK = new System.Windows.Forms.Label();
             this.txtK = new System.Windows.Forms.TextBox();
             this.btnSomarConstante = new System.Windows.Forms.Button();
-            this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
+            this.btnMultiplicar1 = new System.Windows.Forms.Button();
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMatrizes = new System.Windows.Forms.TabPage();
             this.tpOperacoes = new System.Windows.Forms.TabPage();
             this.dgvResult = new System.Windows.Forms.DataGridView();
+            this.btnMultiplicar2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz)).BeginInit();
             this.gbMatriz1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
@@ -319,16 +320,16 @@
             this.btnSomarConstante.Visible = false;
             this.btnSomarConstante.Click += new System.EventHandler(this.btnSomarConstante_Click);
             // 
-            // btnMultiplicarMatrizes
+            // btnMultiplicar1
             // 
-            this.btnMultiplicarMatrizes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMultiplicarMatrizes.Location = new System.Drawing.Point(939, 62);
-            this.btnMultiplicarMatrizes.Name = "btnMultiplicarMatrizes";
-            this.btnMultiplicarMatrizes.Size = new System.Drawing.Size(197, 50);
-            this.btnMultiplicarMatrizes.TabIndex = 5;
-            this.btnMultiplicarMatrizes.Text = "Multiplicar Matrizes";
-            this.btnMultiplicarMatrizes.UseVisualStyleBackColor = true;
-            this.btnMultiplicarMatrizes.Click += new System.EventHandler(this.btnMultiplicarMatrizes_Click);
+            this.btnMultiplicar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMultiplicar1.Location = new System.Drawing.Point(939, 62);
+            this.btnMultiplicar1.Name = "btnMultiplicar1";
+            this.btnMultiplicar1.Size = new System.Drawing.Size(197, 50);
+            this.btnMultiplicar1.TabIndex = 5;
+            this.btnMultiplicar1.Text = "Multiplicar 1x2";
+            this.btnMultiplicar1.UseVisualStyleBackColor = true;
+            this.btnMultiplicar1.Click += new System.EventHandler(this.btnMultiplicar1_Click);
             // 
             // btnSomarMatrizes
             // 
@@ -374,7 +375,8 @@
             // 
             // tpOperacoes
             // 
-            this.tpOperacoes.Controls.Add(this.btnMultiplicarMatrizes);
+            this.tpOperacoes.Controls.Add(this.btnMultiplicar2);
+            this.tpOperacoes.Controls.Add(this.btnMultiplicar1);
             this.tpOperacoes.Controls.Add(this.dgvResult);
             this.tpOperacoes.Controls.Add(this.btnSomarMatrizes);
             this.tpOperacoes.Location = new System.Drawing.Point(4, 32);
@@ -396,6 +398,17 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.Size = new System.Drawing.Size(921, 508);
             this.dgvResult.TabIndex = 7;
+            // 
+            // btnMultiplicar2
+            // 
+            this.btnMultiplicar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMultiplicar2.Location = new System.Drawing.Point(939, 118);
+            this.btnMultiplicar2.Name = "btnMultiplicar2";
+            this.btnMultiplicar2.Size = new System.Drawing.Size(197, 50);
+            this.btnMultiplicar2.TabIndex = 8;
+            this.btnMultiplicar2.Text = "Multiplicar 2x1";
+            this.btnMultiplicar2.UseVisualStyleBackColor = true;
+            this.btnMultiplicar2.Click += new System.EventHandler(this.btnMultiplicar2_Click);
             // 
             // FrmMatrizes
             // 
@@ -428,7 +441,7 @@
         private System.Windows.Forms.Button btnSomarConstante;
         private System.Windows.Forms.Label lblK;
         private System.Windows.Forms.TextBox txtK;
-        private System.Windows.Forms.Button btnMultiplicarMatrizes;
+        private System.Windows.Forms.Button btnMultiplicar1;
         private System.Windows.Forms.Button btnSomarMatrizes;
         private System.Windows.Forms.OpenFileDialog ofdAbrir;
         private System.Windows.Forms.NumericUpDown nudColunas;
@@ -450,6 +463,7 @@
         private System.Windows.Forms.TabPage tpMatrizes;
         private System.Windows.Forms.TabPage tpOperacoes;
         private System.Windows.Forms.DataGridView dgvResult;
+        private System.Windows.Forms.Button btnMultiplicar2;
     }
 }
 

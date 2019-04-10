@@ -63,10 +63,10 @@ namespace apMatrizesEsparsas
         {
             //Trata-se de percorrer a "matriz" em busca da célula descrita nos parâmetros.
             esquerda = cabecaLinha;
-            while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna > indCabeca)
+            while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna != indCabeca)
                 esquerda = esquerda.Direita;
             acima = cabecaColuna;
-            while (acima.Abaixo.Linha < cabecaLinha.Linha && acima.Abaixo.Linha > indCabeca)
+            while (acima.Abaixo.Linha < cabecaLinha.Linha && acima.Abaixo.Linha != indCabeca)
                 acima = acima.Abaixo;
             return esquerda.Direita.Coluna == cabecaColuna.Coluna;
         }
