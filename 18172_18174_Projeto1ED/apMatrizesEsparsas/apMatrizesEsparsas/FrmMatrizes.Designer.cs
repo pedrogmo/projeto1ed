@@ -135,7 +135,7 @@
             // 
             // btnExibir
             // 
-            this.btnExibir.Location = new System.Drawing.Point(95, 416);
+            this.btnExibir.Location = new System.Drawing.Point(94, 430);
             this.btnExibir.Name = "btnExibir";
             this.btnExibir.Size = new System.Drawing.Size(197, 50);
             this.btnExibir.TabIndex = 6;
@@ -312,9 +312,9 @@
             // 
             this.btnSomarConstante.Location = new System.Drawing.Point(217, 351);
             this.btnSomarConstante.Name = "btnSomarConstante";
-            this.btnSomarConstante.Size = new System.Drawing.Size(118, 35);
+            this.btnSomarConstante.Size = new System.Drawing.Size(118, 59);
             this.btnSomarConstante.TabIndex = 4;
-            this.btnSomarConstante.Text = "Somar K";
+            this.btnSomarConstante.Text = "Somar K à coluna";
             this.btnSomarConstante.UseVisualStyleBackColor = true;
             this.btnSomarConstante.Visible = false;
             this.btnSomarConstante.Click += new System.EventHandler(this.btnSomarConstante_Click);

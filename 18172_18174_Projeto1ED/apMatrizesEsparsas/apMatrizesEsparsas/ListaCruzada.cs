@@ -17,11 +17,8 @@ namespace apMatrizesEsparsas
 
 
         //Propriedades para obtenção dos números de linhas e colunas: 
-
         public int QtdLinhas { get => qtdLinhas; }
-
         public int QtdColunas { get => qtdColunas; }
-
 
 
         // Construtor da classe:
@@ -118,7 +115,7 @@ namespace apMatrizesEsparsas
             dgv.RowCount = qtdLinhas;
             dgv.ColumnCount = qtdColunas;
             Celula cabecaColuna = cabeca.Direita;
-            //preenche matriz com número 0.      
+            //Inicializa a matriz com os valores do cabeçalho e células preecnhidas com 0    
             for (int l = 0; l < qtdLinhas; l++)
             {
                 dgv.Rows[l].HeaderCell.Value = (l+1) + ""; //Põe o valor do cabeçalho de linhas.
@@ -296,41 +293,3 @@ namespace apMatrizesEsparsas
         }
     }
 }
-
-
-
-//Obs: nosso código antigo do método que soma matrizes:
-
-/*Código antigo:
- Celula esquerdaA = null, esquerdaB = null, acimaA = null, acimaB = null, esquerdaRet = null, acimaRet = null;
-for (Celula cabecaColuna = ret.cabeca.Direita, cabecaColunaA = cabeca.Direita, cabecaColunaB = outra.cabeca.Direita;
-    cabecaColuna.Coluna != indCabeca; 
-    cabecaColuna = cabecaColuna.Direita, cabecaColunaA = cabecaColunaA.Direita, cabecaColunaB = cabecaColunaB.Direita)
-{
-    for (Celula cabecaLinha = ret.cabeca.Abaixo, cabecaLinhaA = cabeca.Abaixo, cabecaLinhaB = outra.cabeca.Abaixo;
-        cabecaLinha.Linha!=indCabeca; 
-        cabecaLinha = cabecaLinha.Abaixo, cabecaLinhaA = cabecaLinhaA.Abaixo, cabecaLinhaB = cabecaLinhaB.Abaixo)
-    {
-        bool existeEmA = this.ExisteCelula(cabecaLinhaA,cabecaColunaA, ref esquerdaA, ref acimaA);
-        bool existeEmB = outra.ExisteCelula(cabecaLinhaB, cabecaColunaB, ref esquerdaB, ref acimaB);
-        if (existeEmA || existeEmB)
-        {
-            Celula nova = null;
-            if (existeEmA && existeEmB)
-                nova = new Celula(esquerdaA.Direita.Valor + esquerdaB.Direita.Valor, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
-            else if (existeEmA)
-                nova = new Celula(esquerdaA.Direita.Valor, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
-            else
-                nova = new Celula(esquerdaB.Direita.Valor, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
-            if (!ret.ExisteCelula(cabecaLinha,cabecaColuna,ref esquerdaRet,ref acimaRet))
-            {
-                esquerdaRet.Direita = nova;
-                acimaRet.Abaixo = nova;
-                nova.Abaixo = cabecaColuna;
-                nova.Direita = cabecaLinha;
-            }
-        }
-    }
-}
-return ret;
-*/
