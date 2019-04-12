@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Victor Botin Avelino (18172) e Pedro Gomes Moreira (18174)
+
 namespace apMatrizesEsparsas
 {
     public partial class FrmMatrizes : Form

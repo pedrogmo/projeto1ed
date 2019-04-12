@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Victor Botin Avelino (18172) e Pedro Gomes Moreira (18174)
+
 namespace apMatrizesEsparsas
 {
     static class Program
