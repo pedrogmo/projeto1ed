@@ -42,33 +42,41 @@ namespace apMatrizesEsparsas
             for(int c=1; c<=qtdColunas; c++)
             {
                 Celula novaCelula = new Celula(0, indCabeca, c, null, null);
-                novaCelula.Abaixo = novaCelula;
-                atual.Direita = novaCelula;
-                atual = novaCelula;
-            }
-            atual.Direita = cabeca;
-            atual = cabeca;
+                //instanciação de nova célula que será a cabeça da coluna 'c'
+                novaCelula.Abaixo = novaCelula; //célula aponta para si mesma, para manter circularidade da lista
+                atual.Direita = novaCelula; //célula à direta da atual passa a ser a nova célula instanciada
+                atual = novaCelula; //atual vai para sua próxima
+            } //ao final do processo, atual é a última célula da cabeças das colunas 
+            atual.Direita = cabeca; //para manter a circularidade, última coluna aponta para a primeira
+            atual = cabeca; //atual é reinicializada para fazer o mesmo processo, só que com linhas
             for (int l = 1; l <= qtdLinhas; l++)
             {
-                Celula novaCelula = new Celula(0, l, indCabeca, null, null);
-                novaCelula.Direita = novaCelula;
-                atual.Abaixo = novaCelula;
-                atual = novaCelula;
+                Celula novaCelula = new Celula(0, l, indCabeca, null, null); //instanciação da cabeça da linha 'l'
+                novaCelula.Direita = novaCelula; //cabeça da linha aponta para ela mesma
+                atual.Abaixo = novaCelula; //conecta as duas células (atual e novaCelula) usadas para percorrer as linhas
+                atual = novaCelula; //atual vira seu próximo
             }
-            atual.Abaixo = cabeca;
+            atual.Abaixo = cabeca; //ao final do processo, última aponta para primeira
         }
 
         //Método Boolean para verificar existência de uma célula em um dado ponto da lista (no caso, da "matriz").
         private bool ExisteCelula(Celula cabecaLinha, Celula cabecaColuna, ref Celula esquerda, ref Celula acima)
+            //além de retornar um bool de presença da célula na matriz, retorna por referência as células
+            //que estão (ou deveriam estar) à esquerda e acima da célula procurada
         {
             //Trata-se de percorrer a "matriz" em busca da célula descrita nos parâmetros.
-            esquerda = cabecaLinha;
+            esquerda = cabecaLinha; //esquerda recebe inicialmente o ponteiro da cabecaLinha
             while (esquerda.Direita.Coluna < cabecaColuna.Coluna && esquerda.Direita.Coluna != indCabeca)
-                esquerda = esquerda.Direita;
+                //enquanto a célula à direita da esquerda tem valor de sua coluna menor que a coluna da célula procurada
+                //e diferente no índice da cabeça
+                esquerda = esquerda.Direita; //esquerda recebe célula a sua direita
+
+            //aqui é feito o mesmo processo, mas com a célula acima
             acima = cabecaColuna;
             while (acima.Abaixo.Linha < cabecaLinha.Linha && acima.Abaixo.Linha != indCabeca)
                 acima = acima.Abaixo;
-            return esquerda.Direita.Coluna == cabecaColuna.Coluna;
+            return esquerda.Direita.Coluna == cabecaColuna.Coluna; 
+            //retorna-se true se a célula à direita da esquerda corresponde à celula procurada
         }
 
         //Método de inclusão de uma nova célula.
@@ -87,22 +95,23 @@ namespace apMatrizesEsparsas
 
             //Percorre-se a matriz para a inserção no local passado pelos parâmetros.
             Celula esquerda = null, acima = null;
+
+            //obtenção das cabeças de linha e coluna para chamada do método ExisteCelula
             Celula cabecaLinha = cabeca;
             for (int l = 1; l <= novaCelula.Linha; l++)
                 cabecaLinha = cabecaLinha.Abaixo;
-            novaCelula.Direita = cabecaLinha;
             Celula cabecaColuna = cabeca;
             for (int c = 1; c <= novaCelula.Coluna; c++)
                 cabecaColuna = cabecaColuna.Direita;            
-            novaCelula.Abaixo = cabecaColuna;
             if (ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                esquerda.Direita.Valor = novaCelula.Valor;
+                esquerda.Direita.Valor = novaCelula.Valor; //se existe célula, seu valor passa a ser o novo valor passado
             else
+            //se não existe, inclui-se célula
             {
-                novaCelula.Abaixo = acima.Abaixo;
-                novaCelula.Direita = esquerda.Direita;
-                esquerda.Direita = novaCelula;
-                acima.Abaixo = novaCelula;
+                novaCelula.Abaixo = acima.Abaixo; //abaixo fica com valor do abaixo da célula acima
+                novaCelula.Direita = esquerda.Direita; //direita fica com valor da direita da célula esquerda
+                esquerda.Direita = novaCelula; //direita da esquerda passa a ser novaCelula
+                acima.Abaixo = novaCelula; //abaixo da acima passa a ser novaCelula
             }            
         }        
 
@@ -129,17 +138,20 @@ namespace apMatrizesEsparsas
             }
             //Aumento automático do cabeçalho de linhas DataGridView.
             dgv.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders);
+
+            //percorre-se a matriz coluna por coluna, enquanto a coluna da cabecaColuna for diferente do indCabeca(0)
             while (cabecaColuna.Coluna!=cabeca.Coluna)
             {
                 Celula atual = cabecaColuna.Abaixo;
-                while (atual.Linha!=cabecaColuna.Linha)
+                while (atual.Linha!=cabecaColuna.Linha) //percorrem-se todos os valores da coluna atual
                 {
-                    dgv.Rows[atual.Linha - 1].Cells[atual.Coluna - 1].Value = atual.Valor;
-                    atual = atual.Abaixo;
+                    dgv.Rows[atual.Linha - 1].Cells[atual.Coluna - 1].Value = atual.Valor; //célula correspondende do gridView receb o valor da atual
+                    atual = atual.Abaixo; //atual passa para a próxima
                 }
                 cabecaColuna = cabecaColuna.Direita;
-            }
+            }            
         }
+
 
         //Método que o retorna o valor de uma posição da "matriz" em uma linha e em uma coluna dos respectivos parâmetros.
         public double ValorDe(int linha, int coluna)
@@ -157,8 +169,8 @@ namespace apMatrizesEsparsas
             for (int c = 1; c <= coluna; c++)
                 cabecaColuna = cabecaColuna.Direita;
             if (!ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
-                return 0;
-            return esquerda.Direita.Valor;
+                return 0; //se não existe célula, é retornado 0
+            return esquerda.Direita.Valor; //se existe, retorna-se o valor
         }
 
 
@@ -177,6 +189,7 @@ namespace apMatrizesEsparsas
                 cabecaColuna = cabecaColuna.Direita;
             if (!ExisteCelula(cabecaLinha, cabecaColuna, ref esquerda, ref acima))
                 throw new Exception("Célula inexistente");
+            //se a célula existe, removem-se todos os ponteiros para ela, da seguinte forma:
             acima.Abaixo = acima.Abaixo.Abaixo;
             esquerda.Direita = esquerda.Direita.Direita;
         }
@@ -212,6 +225,7 @@ namespace apMatrizesEsparsas
                     else
                     //Caso contrário, instanciaremos uma nova Célula, configuraremos seus ponteiros e adicionaremos K ao seu valor.
                     {
+                        //instanciação e inclusão da célula por meio dos ponteiros
                         Celula nova = new Celula(k, cabecaLinha.Linha, cabecaColuna.Coluna, null, null);
                         nova.Abaixo = acima.Abaixo;
                         nova.Direita = esquerda.Direita;
@@ -239,7 +253,7 @@ namespace apMatrizesEsparsas
             for (int c = 1; c <= qtdColunas; c++)
                 for (int l = 1; l <= qtdLinhas; l++)
                 {
-                    double valor = ValorDe(l, c) + outra.ValorDe(l, c);
+                    double valor = ValorDe(l, c) + outra.ValorDe(l, c); //valor da nova célula recebe soma das células com essa posição
                     if (valor != 0)
                         ret.Incluir(new Celula(valor, l, c, null, null));
                     //Aviso: se for zero, não vai incluir.
@@ -259,14 +273,15 @@ namespace apMatrizesEsparsas
             ListaCruzada ret = new ListaCruzada(qtdLinhas, outra.qtdColunas);
 
             //Percorrendo linhas e colunas.
-            for (int l = 1; l<= qtdLinhas; l++)
+            for (int l = 1; l<= qtdLinhas; l++) //para cada linha da matriz atual
             {                
-                for(int c2 = 1; c2<=outra.qtdColunas; c2++)
+                for(int c2 = 1; c2<=outra.qtdColunas; c2++) //para cada coluna da outra matriz
                 {
                     double valor = 0;
-                    for (int l2 = 1; l2<=outra.qtdLinhas; l2++)
-                        valor += this.ValorDe(l,l2) * outra.ValorDe(l2,c2);                    
-                    if (valor != 0)
+                    for (int l2 = 1; l2 <= outra.qtdLinhas; l2++) //para cada linha da segunda matriz
+                        valor += this.ValorDe(l, l2) * outra.ValorDe(l2, c2); 
+                    //valor incrementa produto das células [linha, linha2] da matriz 1 com [linha2,coluna2] da matriz 2
+                    if (valor != 0) //se o valor é diferente de 0, incluí-se na matriz de resultado
                         ret.Incluir(new Celula(valor,l,c2,null,null));
 
                     //Mesmas condições e comandos do método anterior, mas com acréscimo de cálculos de multiplicação.

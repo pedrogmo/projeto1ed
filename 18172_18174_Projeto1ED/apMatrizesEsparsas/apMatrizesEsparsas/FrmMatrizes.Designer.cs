@@ -55,8 +55,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMatrizes = new System.Windows.Forms.TabPage();
             this.tpOperacoes = new System.Windows.Forms.TabPage();
-            this.dgvResult = new System.Windows.Forms.DataGridView();
             this.btnMultiplicar2 = new System.Windows.Forms.Button();
+            this.dgvResult = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz)).BeginInit();
             this.gbMatriz1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColunas)).BeginInit();
@@ -79,7 +79,7 @@
             this.dgvMatriz.Location = new System.Drawing.Point(9, 12);
             this.dgvMatriz.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dgvMatriz.Name = "dgvMatriz";
-            this.dgvMatriz.Size = new System.Drawing.Size(723, 500);
+            this.dgvMatriz.Size = new System.Drawing.Size(883, 558);
             this.dgvMatriz.TabIndex = 2;
             this.dgvMatriz.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatriz_CellEndEdit);
             // 
@@ -117,9 +117,9 @@
             this.gbMatriz1.Controls.Add(this.txtK);
             this.gbMatriz1.Controls.Add(this.btnSomarConstante);
             this.gbMatriz1.Controls.Add(this.btnLerArquivo);
-            this.gbMatriz1.Location = new System.Drawing.Point(741, 10);
+            this.gbMatriz1.Location = new System.Drawing.Point(901, 10);
             this.gbMatriz1.Name = "gbMatriz1";
-            this.gbMatriz1.Size = new System.Drawing.Size(395, 502);
+            this.gbMatriz1.Size = new System.Drawing.Size(395, 560);
             this.gbMatriz1.TabIndex = 5;
             this.gbMatriz1.TabStop = false;
             this.gbMatriz1.Text = "Matriz";
@@ -358,7 +358,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1150, 556);
+            this.tabControl1.Size = new System.Drawing.Size(1310, 614);
             this.tabControl1.TabIndex = 9;
             // 
             // tpMatrizes
@@ -368,7 +368,7 @@
             this.tpMatrizes.Location = new System.Drawing.Point(4, 32);
             this.tpMatrizes.Name = "tpMatrizes";
             this.tpMatrizes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMatrizes.Size = new System.Drawing.Size(1142, 520);
+            this.tpMatrizes.Size = new System.Drawing.Size(1302, 578);
             this.tpMatrizes.TabIndex = 0;
             this.tpMatrizes.Text = "Matrizes";
             this.tpMatrizes.UseVisualStyleBackColor = true;
@@ -382,10 +382,21 @@
             this.tpOperacoes.Location = new System.Drawing.Point(4, 32);
             this.tpOperacoes.Name = "tpOperacoes";
             this.tpOperacoes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOperacoes.Size = new System.Drawing.Size(1142, 520);
+            this.tpOperacoes.Size = new System.Drawing.Size(1302, 578);
             this.tpOperacoes.TabIndex = 1;
             this.tpOperacoes.Text = "Operações";
             this.tpOperacoes.UseVisualStyleBackColor = true;
+            // 
+            // btnMultiplicar2
+            // 
+            this.btnMultiplicar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMultiplicar2.Location = new System.Drawing.Point(939, 118);
+            this.btnMultiplicar2.Name = "btnMultiplicar2";
+            this.btnMultiplicar2.Size = new System.Drawing.Size(197, 50);
+            this.btnMultiplicar2.TabIndex = 8;
+            this.btnMultiplicar2.Text = "Multiplicar 2x1";
+            this.btnMultiplicar2.UseVisualStyleBackColor = true;
+            this.btnMultiplicar2.Click += new System.EventHandler(this.btnMultiplicar2_Click);
             // 
             // dgvResult
             // 
@@ -399,22 +410,11 @@
             this.dgvResult.Size = new System.Drawing.Size(921, 508);
             this.dgvResult.TabIndex = 7;
             // 
-            // btnMultiplicar2
-            // 
-            this.btnMultiplicar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMultiplicar2.Location = new System.Drawing.Point(939, 118);
-            this.btnMultiplicar2.Name = "btnMultiplicar2";
-            this.btnMultiplicar2.Size = new System.Drawing.Size(197, 50);
-            this.btnMultiplicar2.TabIndex = 8;
-            this.btnMultiplicar2.Text = "Multiplicar 2x1";
-            this.btnMultiplicar2.UseVisualStyleBackColor = true;
-            this.btnMultiplicar2.Click += new System.EventHandler(this.btnMultiplicar2_Click);
-            // 
             // FrmMatrizes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 575);
+            this.ClientSize = new System.Drawing.Size(1340, 633);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
